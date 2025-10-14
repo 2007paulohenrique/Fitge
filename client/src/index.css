@@ -3,7 +3,7 @@
   --light-theme-color: #5da8ff;
   --dark-theme-color: #002462;
   --bg-color: var(--white-color);
-  --text-color: var(--dark-color);
+  --text-color: var(--black-color);
   --gray-color: #bbbbbb;
   --black-color: #000000;
   --white-color: #f5f5f5;
@@ -41,9 +41,9 @@ html,
 body,
 #root {
   min-height: 100dvh;
-  width: 100dvw;
+  height: max-content;
+  min-width: 100dvw;
   max-width: 100dvh;
-  min-height: max-content;
   overflow-x: hidden;
 }
 
