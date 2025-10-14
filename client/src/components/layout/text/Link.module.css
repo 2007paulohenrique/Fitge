@@ -1,0 +1,11 @@
+a.link,
+a.link:where(:link, :visited, :hover, :active) {
+    color: var(--light-theme-color);
+    text-decoration: none; 
+    transition: var(--fast-transition); 
+}
+
+a.link:hover {
+    text-decoration: underline;
+    color: var(--dark-theme-color);
+}
