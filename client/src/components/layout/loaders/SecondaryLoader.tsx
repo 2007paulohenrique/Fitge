@@ -1,23 +1,23 @@
 import React from 'react'
-import BeatLoader from 'react-spinners/BeatLoader'
+import MoonLoader from 'react-spinners/MoonLoader'
 import BaseLoader from './BaseLoader'
 
-type PrimaryLoaderProps = {
+type SecondaryLoaderProps = {
     loading: boolean
     size?: 'small' | 'medium' | 'large'
 }
 
-const PrimaryLoader: React.FC<PrimaryLoaderProps> = ({ 
+const SecondaryLoader: React.FC<SecondaryLoaderProps> = ({ 
     loading, 
     size 
 }) => {
     return (
         <BaseLoader 
             loading={loading} 
-            loader={BeatLoader} 
+            loader={MoonLoader} 
             size={size} 
         />
     )
 }
 
-export default PrimaryLoader
+export default SecondaryLoader
