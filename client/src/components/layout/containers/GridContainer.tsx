@@ -14,7 +14,7 @@ const GridContainer: React.FC<GridContainerProps> = ({
     columnGap = '1em',
     rowGap = '1em',
     autoFill = true,
-    minColumnWidth = "200px",
+    minColumnWidth = '200px',
     children,
     style,
     ...rest

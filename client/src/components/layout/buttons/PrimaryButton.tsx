@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './PrimaryButton.module.css'
+import { formatVariableName } from 'src/utils/formatters/style/cssVariables'
 
 type PrimaryButtonProps = {
     text: string
@@ -20,10 +21,10 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
     onClick,
     isSubmit = true
 }) => {
-    const backgroundColor = `var(${initialVarBackgroundColor})`
-    const transitionBackgroundColor = `var(${transitionVarBackgroundColor})`
-    const color = `var(${initialVarColor})`
-    const transitionColor = `var(${transitionVarColor})`
+    const backgroundColor = formatVariableName(initialVarBackgroundColor)
+    const transitionBackgroundColor = formatVariableName(transitionVarBackgroundColor)
+    const color = formatVariableName(initialVarColor)
+    const transitionColor = formatVariableName(transitionVarColor)
 
     return (
         <button

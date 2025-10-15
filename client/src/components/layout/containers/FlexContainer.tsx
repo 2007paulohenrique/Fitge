@@ -1,4 +1,5 @@
 import React, { type JSX } from 'react'
+import { formatVariableName } from 'src/utils/formatters/style/cssVariables'
 
 type FlexContainerProps = {
     tag?: keyof JSX.IntrinsicElements
@@ -33,11 +34,11 @@ const FlexContainer: React.FC<FlexContainerProps> = ({
     padding = '1em',
     margin,
     style,
-    varBackgroundColor,
+    varBackgroundColor = '--bg-color',
     onClick,
     children
 }) => {
-    const backgroundColor = `var(${varBackgroundColor})`
+    const backgroundColor = formatVariableName(varBackgroundColor)
 
     return (
         <Tag

@@ -1,4 +1,5 @@
 import React, { type JSX } from 'react'
+import { formatVariableName } from 'src/utils/formatters/style/cssVariables'
 
 type TitleProps = {
     text: string
@@ -13,7 +14,7 @@ type TitleProps = {
 const Title: React.FC<TitleProps> = ({
     text,
     headingNumber = 1,
-    varColor,
+    varColor = '--text-color',
     textAlign = 'center',
     varSize,
     style,
@@ -30,8 +31,8 @@ const Title: React.FC<TitleProps> = ({
         6: '--text-size'
     }
 
-    const fontSize = `var(${varSize || defaultSizeMap[headingNumber]})`
-    const color = `var(${varColor})`
+    const fontSize = formatVariableName(varSize || defaultSizeMap[headingNumber])
+    const color = formatVariableName(varColor)
 
     return (
         <Heading

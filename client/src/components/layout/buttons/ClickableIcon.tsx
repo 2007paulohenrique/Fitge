@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './ClickableIcon.module.css'
+import { formatVariableName } from 'src/utils/formatters/style/cssVariables'
 
 type ClickableIconProps = {
     icon: React.FC<React.SVGProps<SVGSVGElement>>
@@ -20,7 +21,7 @@ const ClickableIcon: React.FC<ClickableIconProps> = ({
     onClick,
     isSubmit = false
 }) => { 
-    const color = `var(${varColor})`
+    const color = formatVariableName(varColor)
 
     return (
         <button
@@ -39,7 +40,7 @@ const ClickableIcon: React.FC<ClickableIconProps> = ({
                 style={{
                     color
                 }}
-                role="img"
+                role='img'
                 aria-label={name}
             />
         </button>

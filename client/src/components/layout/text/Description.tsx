@@ -1,4 +1,5 @@
 import React from 'react'
+import { formatVariableName } from 'src/utils/formatters/style/cssVariables'
 
 type DescriptionProps = {
     text: string
@@ -13,8 +14,8 @@ type DescriptionProps = {
 
 const Description: React.FC<DescriptionProps> = ({
     text,
-    varColor,
-    varSize,
+    varColor = '--text-color',
+    varSize = '--text-size',
     textAlign = 'center',
     hyphens,
     maxLines,
@@ -29,16 +30,16 @@ const Description: React.FC<DescriptionProps> = ({
     const cssLineClamp =
         maxLines != undefined
         ? { 
-            display: "-webkit-box" as any,
-            WebkitBoxOrient: "vertical" as any,
+            display: '-webkit-box' as any,
+            WebkitBoxOrient: 'vertical' as any,
             WebkitLineClamp: maxLines,
-            overflow: "hidden",
-            textOverflow: "ellipsis"
+            overflow: 'hidden',
+            textOverflow: 'ellipsis'
         }
         : {}
 
-    const fontSize = `var(${varSize})`
-    const color = `var(${varColor})`
+    const fontSize = formatVariableName(varSize)
+    const color = formatVariableName(varColor)
 
     return (
         <p
