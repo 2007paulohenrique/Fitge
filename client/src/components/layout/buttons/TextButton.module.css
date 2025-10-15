@@ -1,0 +1,23 @@
+button.text_button {
+    border: none;
+    background: none;
+    width: max-content;
+    color: var(--button-text-color);
+    position: relative;
+}
+
+button.text_button::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--button-text-color);
+    transition: var(--fast-transition);
+}
+
+button.text_button:hover::before {
+    left: 0;
+    width: 100%;
+}
