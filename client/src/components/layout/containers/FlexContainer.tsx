@@ -14,7 +14,7 @@ type FlexContainerProps = {
     padding?: string | number
     margin?: string | number
     style?: React.CSSProperties
-    backgroundColor?: React.CSSProperties['backgroundColor']
+    varBackgroundColor?: string
     onClick?: () => void
     children?: React.ReactNode
 }
@@ -33,10 +33,12 @@ const FlexContainer: React.FC<FlexContainerProps> = ({
     padding = '1em',
     margin,
     style,
-    backgroundColor,
+    varBackgroundColor,
     onClick,
     children
 }) => {
+    const backgroundColor = `var(${varBackgroundColor})`
+
     return (
         <Tag
             className={className}
