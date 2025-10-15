@@ -1,0 +1,16 @@
+button.primary_button {
+    padding: 0.5em 1em;
+    border-radius: 10px;
+    width: max-content;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    border: 1px solid var(--button-text-color);
+    font-weight: bold;
+    transition: var(--fast-transition);
+}
+
+button.primary_button:hover {
+    background-color: var(--hover-button-bg-color);
+    color: var(--hover-button-text-color);
+    border: 1px solid var(--hover-button-text-color);
+}
