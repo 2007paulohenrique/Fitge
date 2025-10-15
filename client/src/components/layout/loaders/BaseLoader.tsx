@@ -1,6 +1,6 @@
 import React from 'react'
 import { themeColor } from '../../../utils/consts/cssVariables'
-import FlexContainer from '../containers/FlexContainer'
+import FlexContainer from '../../containers/FlexContainer'
 
 type LoaderComponentType = React.ComponentType<{
     loading: boolean

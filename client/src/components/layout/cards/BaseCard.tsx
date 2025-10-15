@@ -1,5 +1,5 @@
 import React from 'react'
-import FlexContainer from '../containers/FlexContainer'
+import FlexContainer from '../../containers/FlexContainer'
 
 type BaseCardProps = React.ComponentProps<typeof FlexContainer> & {
     border?: string
