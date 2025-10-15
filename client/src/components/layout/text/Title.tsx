@@ -1,5 +1,5 @@
 import React, { type JSX } from 'react'
-import { formatVariableName } from 'src/utils/formatters/style/cssVariables'
+import { formatVariableName } from '../../../utils/formatters/style/cssVariables'
 
 type TitleProps = {
     text: string

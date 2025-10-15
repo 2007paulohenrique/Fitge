@@ -1,5 +1,5 @@
 import React from 'react'
-import { formatVariableName } from 'src/utils/formatters/style/cssVariables'
+import { formatVariableName } from '../../../utils/formatters/style/cssVariables'
 
 type DescriptionProps = {
     text: string

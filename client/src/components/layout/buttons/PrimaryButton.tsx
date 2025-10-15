@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './PrimaryButton.module.css'
-import { formatVariableName } from 'src/utils/formatters/style/cssVariables'
+import { formatVariableName } from '../../../utils/formatters/style/cssVariables'
 
 type PrimaryButtonProps = {
     text: string

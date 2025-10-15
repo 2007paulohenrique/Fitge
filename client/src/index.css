@@ -41,8 +41,8 @@
 html,
 body,
 #root {
-  min-height: 100dvh;
-  height: max-content;
+  min-height: max-content;
+  height: 100dvh;
   min-width: 100dvw;
   max-width: 100dvh;
   overflow-x: hidden;

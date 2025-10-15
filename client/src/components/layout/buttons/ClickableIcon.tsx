@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './ClickableIcon.module.css'
-import { formatVariableName } from 'src/utils/formatters/style/cssVariables'
+import { formatVariableName } from '../../../utils/formatters/style/cssVariables'
 
 type ClickableIconProps = {
     icon: React.FC<React.SVGProps<SVGSVGElement>>
