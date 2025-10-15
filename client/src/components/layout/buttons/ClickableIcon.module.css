@@ -1,0 +1,27 @@
+button.clickable_icon.tiny {
+    --size: 1em;
+}
+
+button.clickable_icon.small {
+    --size: 1.5em;
+}
+
+button.clickable_icon.medium {
+    --size: 2em;
+}
+
+button.clickable_icon.large {
+    --size: 3em;
+}
+
+button.clickable_icon {
+    background: none;
+    height: var(--size);
+    width: var(--size);
+    border: none;
+    transition: var(--fast-transition);
+}
+
+button.clickable_icon.transition:hover {
+    transform: scale(1.1);
+}
