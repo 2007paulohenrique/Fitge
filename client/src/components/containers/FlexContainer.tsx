@@ -1,3 +1,4 @@
+import { forwardRef } from 'react'
 import React, { type JSX } from 'react'
 import { formatVariableName } from '../../utils/formatters/style/cssVariables'
 
@@ -18,9 +19,9 @@ type FlexContainerProps = {
     varBackgroundColor?: string
     onClick?: () => void
     children?: React.ReactNode
-}
+} & any
 
-const FlexContainer: React.FC<FlexContainerProps> = ({ 
+const FlexContainer = forwardRef<HTMLElement, FlexContainerProps>(({
     tag: Tag = 'div',
     flexDirection = 'column',
     gap = '1em',
@@ -36,12 +37,14 @@ const FlexContainer: React.FC<FlexContainerProps> = ({
     style,
     varBackgroundColor = '--bg-color',
     onClick,
-    children
-}) => {
+    children,
+    ...rest
+}, ref) => {
     const backgroundColor = formatVariableName(varBackgroundColor)
 
     return (
         <Tag
+            ref={ref}
             className={className}
             onClick={onClick}
             style={{
@@ -59,10 +62,13 @@ const FlexContainer: React.FC<FlexContainerProps> = ({
                 backgroundColor,
                 ...style
             }}
+            {...rest}
         >
             {children}
         </Tag>
     )
-}
+})
+
+FlexContainer.displayName = 'FlexContainer'
 
 export default FlexContainer
