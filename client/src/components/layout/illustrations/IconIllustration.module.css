@@ -1,0 +1,24 @@
+div.icon_illustration.tiny {
+    --size: 2em;
+}
+
+div.icon_illustration.small {
+    --size: 4em;
+}
+
+div.icon_illustration.medium {
+    --size: 6em;
+}
+
+div.icon_illustration.large {
+    --size: 10em;
+}
+
+div.icon_illustration.fill {
+    --size: 100%;
+}
+
+div.icon_illustration {
+    height: var(--size);
+    width: var(--size);
+}
