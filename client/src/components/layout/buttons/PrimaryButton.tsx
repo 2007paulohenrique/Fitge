@@ -15,7 +15,7 @@ type PrimaryButtonProps = {
 const PrimaryButton: React.FC<PrimaryButtonProps> = ({ 
     text, 
     initialVarBackgroundColor = '--theme-color',
-    transitionVarBackgroundColor = '--light-theme-color',
+    transitionVarBackgroundColor = '--bg-color',
     initialVarColor = '--white-color',
     transitionVarColor = '--black-color',
     onClick,

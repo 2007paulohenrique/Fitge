@@ -10,6 +10,7 @@ type BaseCardProps = React.ComponentProps<typeof FlexContainer> & {
 const BaseCard: React.FC<BaseCardProps> = ({
     border = '2px solid var(--text-color)',
     borderRadius = '20px',
+    padding = '1em',
     boxShadow,
     style,
     children,
@@ -23,6 +24,7 @@ const BaseCard: React.FC<BaseCardProps> = ({
                 borderRadius,
                 boxShadow,
                 overflow: 'hidden',
+                padding,
                 ...style
             }}
         >

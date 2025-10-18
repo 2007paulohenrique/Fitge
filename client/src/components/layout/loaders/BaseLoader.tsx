@@ -28,7 +28,7 @@ const BaseLoader: React.FC<BaseLoaderProps> = ({
     return (
         loading && (
             <FlexContainer
-                height='100%'
+                minHeight='100%'
             >
                 <Loader 
                     size={defaultSizeMap[size]}

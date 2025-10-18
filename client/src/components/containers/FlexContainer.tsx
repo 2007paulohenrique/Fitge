@@ -12,6 +12,8 @@ type FlexContainerProps = {
     width?: string | number
     maxHeight?: string | number
     maxWidth?: string | number
+    minHeight?: string | number
+    minWidth?: string | number
     className?: string
     padding?: string | number
     margin?: string | number
@@ -31,8 +33,10 @@ const FlexContainer = forwardRef<HTMLElement, FlexContainerProps>(({
     width = '100%',
     maxHeight,
     maxWidth,
+    minHeight,
+    minWidth = 'min-content',
     className,
-    padding = '1em',
+    padding = '0',
     margin,
     style,
     varBackgroundColor = '--bg-color',
@@ -57,6 +61,8 @@ const FlexContainer = forwardRef<HTMLElement, FlexContainerProps>(({
                 width,
                 maxHeight,
                 maxWidth,
+                minHeight,
+                minWidth,
                 padding,
                 margin,
                 backgroundColor,
