@@ -1,0 +1,9 @@
+.message_toast {
+    background-color: var(--bg-color); 
+    color: var(--text-color);
+    border-radius: 10px;
+    border: 2px solid var(--text-color);
+    padding: 0.5em 1em;
+    letter-spacing: 0.5px;
+    max-width: 30em;
+}
