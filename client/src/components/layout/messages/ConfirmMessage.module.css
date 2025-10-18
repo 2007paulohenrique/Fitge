@@ -1,0 +1,12 @@
+.confirm_message {
+    animation: slide 0.5s;
+}
+
+@keyframes slide {
+    from {
+        transform: translateY(-50dvh);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
