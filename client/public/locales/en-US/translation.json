@@ -1,0 +1,19 @@
+{
+    "responses": {
+        "error": {
+            "PAGE_ACCESS_ERROR": "You don't have permission to access this page!",
+            "UNKNOWN_ERROR": "An unknown error occurred! Please send a message to our support team or try again.",
+            "TIMEOUT_ERROR": "The server took too long to respond! Please check your connection or try again."
+        },
+        "success": {
+
+        }
+    },
+    "pages": {
+        "login": "Login"
+    },
+    "general": {
+        "confirm": "Confirm",
+        "cancel": "Cancel"
+    }
+}

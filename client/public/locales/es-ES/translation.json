@@ -1,0 +1,19 @@
+{
+    "responses": {
+        "error": {
+            "PAGE_ACCESS_ERROR": "¡No tienes permiso para acceder a esta página!",
+            "UNKNOWN_ERROR": "¡Se ha producido un error desconocido! Envía un mensaje a nuestro equipo de soporte o inténtalo de nuevo.",
+            "TIMEOUT_ERROR": "¡El servidor tardó demasiado en responder! Comprueba tu conexión o inténtalo de nuevo."
+        },
+        "success": {
+
+        }
+    },
+    "pages": {
+        "login": "Iniciar sesión"
+    },
+    "general": {
+        "confirm": "Confirmar",
+        "cancel": "Cancelar"
+    }
+}

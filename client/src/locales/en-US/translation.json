@@ -1,0 +1,19 @@
+{
+    "responses": {
+        "error": {
+            "PAGE_ACCESS_ERROR": "",
+            "UNKNOWN_ERROR": "",
+            "TIMEOUT_ERROR": ""
+        },
+        "success": {
+
+        }
+    },
+    "pages": {
+        "login": ""
+    },
+    "general": {
+        "confirm": "",
+        "cancel": ""
+    }
+}
