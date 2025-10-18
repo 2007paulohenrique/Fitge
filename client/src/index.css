@@ -48,6 +48,12 @@ body,
   overflow-x: hidden;
 }
 
+main {
+  height: 100dvh;
+  min-height: max-content;
+  overflow-x: hidden;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--fonts-1);
   letter-spacing: 1px;
@@ -65,6 +71,7 @@ body {
 
 img {
   display: block;
+  user-select: none;
 }
 
 button {
