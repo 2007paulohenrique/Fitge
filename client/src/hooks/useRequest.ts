@@ -22,7 +22,7 @@ export type RequestInUseRequest = (
     onError?: ErrorHandler,
     loadingMessage?: string,
     showSuccessMessage?: boolean
-) => Promise<void>
+) => Promise<boolean>
 
 export default function useRequest() {
     const { t } = useTranslation()
@@ -70,7 +70,7 @@ export default function useRequest() {
         loadingMessage, 
         showSuccessMessage = true
     ) => {
-        if (loading) return
+        if (loading) return false
 
         if (!navigator.onLine) {
             navigate('/error', { 
@@ -79,7 +79,7 @@ export default function useRequest() {
                 }
             })
 
-            return
+            return false
         }
 
         const requestId = String(Math.random())
@@ -97,6 +97,8 @@ export default function useRequest() {
 
             if (showSuccessMessage) notify(t(message), 'success', requestId)
 
+            return true
+
         } catch (err) {
             const error = err as AxiosError
 
@@ -109,7 +111,7 @@ export default function useRequest() {
 
                 notify(t(message), 'error', requestId)
 
-                return
+                return false
             }
 
             const response = error.response
@@ -121,7 +123,7 @@ export default function useRequest() {
                     }
                 })
                 
-                return
+                return false
             } 
             
             const responseStatus = response.status
@@ -137,7 +139,7 @@ export default function useRequest() {
                 
                 notify(t(message), 'error', requestId)
                 
-                return
+                return false
             }
 
             if (responseStatus === 401 && messageCode === 'INVALID_TOKEN_ERROR' && !errorConfig._retry) {
@@ -159,6 +161,8 @@ export default function useRequest() {
             onError?.(error)
             
             notify(t(message), 'error', requestId)
+
+            return false
 
         } finally {            
             setLoading(false)
