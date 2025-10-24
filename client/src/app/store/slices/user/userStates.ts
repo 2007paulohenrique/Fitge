@@ -8,6 +8,7 @@ export interface UserConfigState {
 export interface UserState {
     id: number | undefined
     name: string
+    nickname: string
     sex: 'male' | 'female' | 'none'
     userType: 'client' | 'trainer' | undefined
     photoUrl: string | undefined
@@ -17,6 +18,7 @@ export interface UserState {
 const initialUserState: UserState = {
     id: undefined,
     name: '',
+    nickname: '',
     sex: 'none',
     userType: undefined,
     photoUrl: undefined,
