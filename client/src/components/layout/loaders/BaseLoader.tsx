@@ -1,6 +1,7 @@
 import React from 'react'
-import { themeColor } from '../../../utils/consts/cssVariables'
+import { cssVarColors } from '../../../utils/consts/cssVariables'
 import FlexContainer from '../../containers/FlexContainer'
+import { formatVariableName } from '../../../utils/formatters/style/cssVariables'
 
 type LoaderComponentType = React.ComponentType<{
     loading: boolean
@@ -25,6 +26,8 @@ const BaseLoader: React.FC<BaseLoaderProps> = ({
         'large': 28
     }
 
+    const loaderColor = formatVariableName(cssVarColors.themeColor)
+
     return (
         loading && (
             <FlexContainer
@@ -32,7 +35,7 @@ const BaseLoader: React.FC<BaseLoaderProps> = ({
             >
                 <Loader 
                     size={defaultSizeMap[size]}
-                    color={themeColor}
+                    color={loaderColor}
                     loading={loading}
                 />
             </FlexContainer>

@@ -1,23 +1,24 @@
 import React from 'react'
 import styles from './PrimaryButton.module.css'
 import { formatVariableName } from '../../../utils/formatters/style/cssVariables'
+import { cssVarColors, type CssVarColors } from '../../../utils/consts/cssVariables'
 
 type PrimaryButtonProps = {
     text: string
-    initialVarBackgroundColor?: string
-    transitionVarBackgroundColor?: string
-    initialVarColor?: string
-    transitionVarColor?: string
+    initialVarBackgroundColor?: CssVarColors
+    transitionVarBackgroundColor?: CssVarColors
+    initialVarColor?: CssVarColors
+    transitionVarColor?: CssVarColors
     onClick?: () => void
     isSubmit?: boolean
 }
 
 const PrimaryButton: React.FC<PrimaryButtonProps> = ({ 
     text, 
-    initialVarBackgroundColor = '--theme-color',
-    transitionVarBackgroundColor = '--bg-color',
-    initialVarColor = '--white-color',
-    transitionVarColor = '--black-color',
+    initialVarBackgroundColor = cssVarColors.themeColor,
+    transitionVarBackgroundColor = cssVarColors.whiteColor,
+    initialVarColor = cssVarColors.whiteColor,
+    transitionVarColor = cssVarColors.blackColor,
     onClick,
     isSubmit = true
 }) => {

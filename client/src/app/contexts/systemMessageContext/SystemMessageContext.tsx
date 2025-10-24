@@ -1,7 +1,7 @@
 import { createContext, useRef, useCallback, type ReactNode } from 'react'
 import toast, { Toaster, type ToastOptions } from 'react-hot-toast'
 import styles from './SystemMessage.module.css'
-import { alertColor, successColor } from '../../../utils/consts/cssVariables'
+import { cssVarColors } from '../../../utils/consts/cssVariables'
 import ConfirmMessage from '../../../components/layout/messages/ConfirmMessage'
 
 type NotifyType = 'success' | 'error' | 'loading'
@@ -40,7 +40,7 @@ export function SystemMessageProvider({
                 toast.success(message, {
                     ...commonProps,
                     iconTheme: {
-                        primary: successColor,
+                        primary: cssVarColors.successColor,
                         secondary: 'var(--bg-color)'
                     }
                 })
@@ -51,7 +51,7 @@ export function SystemMessageProvider({
                 toast.error(message, {
                     ...commonProps,
                     iconTheme: {
-                        primary: alertColor,
+                        primary: cssVarColors.alertColor,
                         secondary: 'var(--bg-color)'
                     }
                 })

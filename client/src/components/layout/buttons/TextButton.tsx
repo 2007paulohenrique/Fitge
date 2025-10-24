@@ -1,16 +1,17 @@
 import React from 'react'
 import styles from './TextButton.module.css'
 import { formatVariableName } from '../../../utils/formatters/style/cssVariables'
+import { cssVarColors, type CssVarColors } from '../../../utils/consts/cssVariables'
 
 type TextButtonProps = {
     text: string
-    varColor?: string
+    varColor?: CssVarColors
     onClick: () => void
 }
 
 const TextButton: React.FC<TextButtonProps> = ({ 
     text, 
-    varColor = '--theme-color',
+    varColor = cssVarColors.themeColor,
     onClick
 }) => {
     const color = formatVariableName(varColor)

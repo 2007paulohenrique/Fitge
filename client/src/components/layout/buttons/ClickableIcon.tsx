@@ -1,13 +1,14 @@
 import React from 'react'
 import styles from './ClickableIcon.module.css'
 import { formatVariableName } from '../../../utils/formatters/style/cssVariables'
+import { cssVarColors, type CssVarColors } from '../../../utils/consts/cssVariables'
 
 type ClickableIconProps = {
     icon: React.FC<React.SVGProps<SVGSVGElement>>
     name?: string
     size?: 'tiny' | 'small' | 'medium' | 'large'
     hasTransition?: boolean
-    varColor?: string
+    varColor?: CssVarColors | 'none'
     onClick?: () => void
     isSubmit?: boolean
 }
@@ -17,11 +18,11 @@ const ClickableIcon: React.FC<ClickableIconProps> = ({
     name,
     size = 'medium',
     hasTransition = true,
-    varColor = '--text-color',
+    varColor = cssVarColors.textColor,
     onClick,
     isSubmit = false
 }) => { 
-    const color = formatVariableName(varColor)
+    const color = varColor !== 'none' ? formatVariableName(varColor) : undefined
 
     return (
         <button
