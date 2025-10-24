@@ -1,18 +1,41 @@
-export const themeColor: string = '#0056e8'
-export const lightThemeColor: string = '#5da8ff'
-export const darkThemeColor: string = '#002462'
+export const cssVarColors = {
+    themeColor: '--theme-color',
+    lightThemeColor: '--light-theme-color',
+    darkThemeColor: '--dark-theme-color',
+    textColor: '--text-color',
+    bgColor: '--bg-color',
+    grayColor: '--gray-color',
+    blackColor: '--black-color',
+    whiteColor: '--white-color',
+    alertColor: '--alert-color',
+    successColor: '--success-color'
+} as const
 
-export const grayColor: string = '#bbbbbb'
-export const blackColor: string = '#000000'
-export const whiteColor: string = '#f5f5f5'
+export type CssVarColors = (typeof cssVarColors)[keyof typeof cssVarColors]
 
-export const alertColor: string = '#ff0000'
-export const successColor: string = '#5bf458'
+export const cssVarSizes = {
+    largeTitleSize: '--large-title-size',
+    titleSize: '--title-size',
+    smallTitleSize: '--small-title-size',
+    largeTextSize: '--large-text-size',
+    textSize: '--text-size',
+    smallTextSize: '--small-text-size'
+} as const
 
-export const largeTitleSize: string = '3.5rem'
-export const titleSize: string = '2.5rem'
-export const smallTitleSize: string = '1.625rem'
+export type CssVarSizes = (typeof cssVarSizes)[keyof typeof cssVarSizes]
 
-export const largeTextSize: string = '1.125rem'
-export const textSize: string = '0.875rem'
-export const smallTextSize: string = '0.7rem'
+export const cssVarTitleSizes = {
+    largeTitleSize: '--large-title-size',
+    titleSize: '--title-size',
+    smallTitleSize: '--small-title-size'
+} as const
+
+export type CssVarTitleSizes = (typeof cssVarTitleSizes)[keyof typeof cssVarTitleSizes]
+
+export const cssVarTextSizes = {
+    largeTextSize: '--large-text-size',
+    textSize: '--text-size',
+    smallTextSize: '--small-text-size'
+} as const
+
+export type CssVarTextSizes = (typeof cssVarTextSizes)[keyof typeof cssVarTextSizes]
