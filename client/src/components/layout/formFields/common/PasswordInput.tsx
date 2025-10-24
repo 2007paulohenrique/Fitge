@@ -90,6 +90,7 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
                         maxLength={passwordMaxLength}
                         readOnly={!onChange}
                         required
+                        className={(!!value && hasError) ? styles.error : ''}
                     />
 
                     <ClickableIcon
