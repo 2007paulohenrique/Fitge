@@ -1,0 +1,22 @@
+div.accept_check_box > span {
+    min-width: 1.3em;
+    min-height: 1.3em;
+    cursor: pointer;
+    font-size: var(--small-text-size);
+    border: 1px solid var(--theme-color);
+    position: relative;
+    transition: var(--fast-transition); 
+}
+
+div.accept_check_box > span.accepted {
+    background-color: var(--theme-color);
+}
+
+div.accept_check_box > span.accepted::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--white-color);
+    content: "✓";
+}
