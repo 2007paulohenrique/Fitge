@@ -1,0 +1,36 @@
+import { useTranslation } from 'react-i18next'
+import BaseInput from '../common/BaseInput'
+import NicknameIcon from '../../../../assets/icons/nickname.svg?react'
+import { nicknameMaxLength } from '../../../../utils/consts/dataLimits'
+
+type NicknameInputProps = {
+    name?: string
+    value: string
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+    hasError: boolean
+}
+
+const NicknameInput: React.FC<NicknameInputProps> = ({
+    name = 'nickname',
+    value,
+    onChange,
+    hasError
+}) => {
+    const { t } = useTranslation()
+
+    return (
+        <BaseInput
+            name={name}
+            placeholder={t('forms.fields.nickname.placeholder')}
+            value={value}
+            icon={NicknameIcon}
+            onChange={onChange}
+            label={t('forms.fields.nickname.label')}
+            alertMessage={t('forms.fields.nickname.alert')}
+            hasError={hasError}
+            maxLength={nicknameMaxLength}
+        />
+    )
+}
+
+export default NicknameInput
