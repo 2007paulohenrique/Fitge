@@ -11,7 +11,7 @@ type BasePageProps = {
     title: string
     isUserRequired?: boolean
     userTypeRequired: 'client' | 'trainer' | 'none'
-    fetchInitialData?: () => void
+    fetchInitialData?: () => Promise<void>
     padding?: string | number
     centralize?: boolean
     children?: React.ReactNode
@@ -63,7 +63,7 @@ const BasePage: React.FC<BasePageProps> = ({
                 }
             }
 
-            fetchInitialData?.()
+            await fetchInitialData?.()
 
             setHasRun(true)
         }
