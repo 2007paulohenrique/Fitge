@@ -1,17 +1,17 @@
 import { useTranslation } from 'react-i18next'
 import BaseForm from '../../../base/BaseForm'
 import FlexContainer from '../../../containers/FlexContainer'
-import Title from '../../../layout/text/Title'
-import PrimaryButton from '../../../layout/buttons/PrimaryButton'
-import TextButton from '../../../layout/buttons/TextButton'
+import Title from '../../../ui/text/Title'
+import PrimaryButton from '../../../ui/buttons/PrimaryButton'
+import TextButton from '../../../ui/buttons/TextButton'
 import { setObjectDataInForm } from '../../../../utils/reactState.ts/setData'
 import type { LoginUser } from '../types'
-import PasswordInput from '../../../layout/formFields/common/PasswordInput'
-import EmailInput from '../../../layout/formFields/specific/EmailInput'
+import PasswordInput from '../../../ui/formFields/common/PasswordInput'
+import EmailInput from '../../../ui/formFields/specific/EmailInput'
 import { useNavigate } from 'react-router-dom'
 import { signUpRote } from '../../../../utils/consts/rotes'
 import FitgeIcon from '../../../../assets/fitgeIdentity/icon.svg?react'
-import IconIllustration from '../../../layout/illustrations/IconIllustration'
+import IconIllustration from '../../../ui/illustrations/IconIllustration'
 
 type LoginFormProps = {
     onLoginSubmit: () => void

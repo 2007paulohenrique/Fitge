@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import PrimaryLoader from '../layout/loaders/PrimaryLoader'
+import PrimaryLoader from '../ui/loaders/PrimaryLoader'
 import { useAppSelector } from '../../hooks/useAppSelector'
 import { getUserType } from '../../utils/requests/userRequests'
 import useRequest from '../../hooks/useRequest'

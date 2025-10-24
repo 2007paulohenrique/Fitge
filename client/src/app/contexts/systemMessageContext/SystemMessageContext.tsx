@@ -2,7 +2,7 @@ import { createContext, useRef, useCallback, type ReactNode } from 'react'
 import toast, { Toaster, type ToastOptions } from 'react-hot-toast'
 import styles from './SystemMessage.module.css'
 import { cssVarColors } from '../../../utils/consts/cssVariables'
-import ConfirmMessage from '../../../components/layout/messages/ConfirmMessage'
+import ConfirmMessage from '../../../components/ui/messages/ConfirmMessage'
 
 type NotifyType = 'success' | 'error' | 'loading'
 

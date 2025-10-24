@@ -1,5 +1,5 @@
 import React from 'react'
-import FlexContainer from '../../../components/containers/FlexContainer'
+import FlexContainer from '../../containers/FlexContainer'
 import TextButton from '../buttons/TextButton'
 import PrimaryButton from '../buttons/PrimaryButton'
 import { useTranslation } from 'react-i18next'
