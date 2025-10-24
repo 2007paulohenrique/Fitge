@@ -1,21 +1,24 @@
 import React from 'react'
 import styles from './IconIllustration.module.css'
 import { formatVariableName } from '../../../utils/formatters/style/cssVariables'
+import { cssVarColors, type CssVarColors } from '../../../utils/consts/cssVariables'
 
 type IconIllustrationProps = {
-    icon: React.FC<React.SVGProps<SVGSVGElement>>
+    icon?: React.FC<React.SVGProps<SVGSVGElement>>
+    src?: string
     name?: string
     size?: 'tiny' | 'small' | 'medium' | 'large' | 'fill'
-    varColor?: string
+    varColor?: CssVarColors | 'none'
 }
 
 const IconIllustration: React.FC<IconIllustrationProps> = ({
     icon: Icon,
+    src,
     name,
     size = 'medium',
-    varColor = '--theme-color'
+    varColor = cssVarColors.themeColor
 }) => { 
-    const color = formatVariableName(varColor)
+    const color = varColor !== 'none' ? formatVariableName(varColor) : undefined
 
     return (
         <div
@@ -24,15 +27,23 @@ const IconIllustration: React.FC<IconIllustrationProps> = ({
                 ${styles[size]} 
             `}
         >
-            <Icon
-                width='100%'
-                height='100%'
-                style={{
-                    color
-                }}
-                role='img'
-                aria-label={name}
-            />
+            {Icon ? (
+                <Icon
+                    width='100%'
+                    height='100%'
+                    style={{ 
+                        color 
+                    }}
+                    role='img'
+                    aria-label={name}
+                />
+            ) : src ? (
+                <img
+                    src={src}
+                    alt={name}
+                    loading="lazy"
+                />
+            ) : null}
         </div>
     )
 }
