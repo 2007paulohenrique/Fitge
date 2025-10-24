@@ -1,0 +1,28 @@
+div.base_input_input_container input {
+    width: 100%;
+    padding: 0.8em;
+    background-color: transparent;
+    border: 1px solid var(--text-color);
+    border-radius: 20px;
+}
+
+div.base_input_input_container input:focus {
+    border: 1px solid var(--theme-color);
+}
+
+div.base_input_input_container input.error {
+    border: 1px solid var(--alert-color);
+}
+
+div.password_input_container {
+    width: 100%;
+    position: relative;
+}
+
+div.password_input_container > button {
+    position: absolute;
+    right: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
