@@ -1,24 +1,29 @@
 import React from 'react'
 import { formatVariableName } from '../../../utils/formatters/style/cssVariables'
+import { cssVarColors, cssVarTextSizes, type CssVarColors, type CssVarTextSizes } from '../../../utils/consts/cssVariables'
 
 type DescriptionProps = {
-    text: string
-    varColor?: string
-    varSize?: '--large-text-size' | '--text-size' | '--small-text-size'
+    text: React.ReactNode
+    varColor?: CssVarColors
+    varSize?: CssVarTextSizes
     textAlign?: React.CSSProperties['textAlign']
-    hyphens?: 'none' | 'manual' | 'auto'
+    hyphens?: React.CSSProperties['hyphens']
     maxLines?: number
+    isBold?: boolean
+    isVisible?: boolean
     style?: React.CSSProperties
     className?: string
 }
 
 const Description: React.FC<DescriptionProps> = ({
     text,
-    varColor = '--text-color',
-    varSize = '--text-size',
+    varColor = cssVarColors.textColor,
+    varSize = cssVarTextSizes.textSize,
     textAlign = 'center',
     hyphens,
     maxLines,
+    isBold = false,
+    isVisible = true,
     style,
     className
 }) => {
@@ -38,6 +43,16 @@ const Description: React.FC<DescriptionProps> = ({
         }
         : {}
 
+    const fontWeight = 
+        isBold 
+        ? 'bold' 
+        : 'normal'
+    
+    const visibility = 
+        isVisible 
+        ? 'visible' 
+        : 'hidden'
+
     const fontSize = formatVariableName(varSize)
     const color = formatVariableName(varColor)
 
@@ -49,6 +64,8 @@ const Description: React.FC<DescriptionProps> = ({
                 fontSize,
                 textAlign,
                 hyphens: hyphens || defaultHyphens,
+                fontWeight,
+                visibility,
                 ...cssLineClamp,
                 ...style
             }}
