@@ -12,7 +12,7 @@ i18n
             'pt': ['pt-BR'],
             'default': ['pt-BR']
         },
-        supportedLngs: ['pt-BR', 'en-US', 'es-ES'],
+        supportedLngs: ['pt-BR', 'en-US', 'es-ES', 'pt'],
         ns: ['translation'],
         defaultNS: 'translation',
         debug: true,
@@ -20,7 +20,7 @@ i18n
             escapeValue: false
         },
         react: {
-            useSuspense: false
+            useSuspense: true
         },
         backend: {
             loadPath: '/locales/{{lng}}/translation.json'
