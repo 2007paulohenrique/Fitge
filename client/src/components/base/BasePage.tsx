@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PrimaryLoader from '../layout/loaders/PrimaryLoader'
 import { useAppSelector } from '../../hooks/useAppSelector'
@@ -12,6 +12,8 @@ type BasePageProps = {
     isUserRequired?: boolean
     userTypeRequired: 'client' | 'trainer' | 'none'
     fetchInitialData?: () => void
+    padding?: string | number
+    centralize?: boolean
     children?: React.ReactNode
 }
 
@@ -20,10 +22,10 @@ const BasePage: React.FC<BasePageProps> = ({
     isUserRequired = true,
     userTypeRequired,
     fetchInitialData,
+    padding = '2em',
+    centralize = false,
     children
 }) => {
-    const hasRun = useRef<boolean>(false)
-
     const navigate = useNavigate()
 
     const user = useAppSelector(state => state.user)
@@ -33,8 +35,18 @@ const BasePage: React.FC<BasePageProps> = ({
     const { notify } = useSystemMessage()
     const { t } = useTranslation()
 
+    const [hasRun, setHasRun] = useState<boolean>(false)
+
+    const centralizeStyle = 
+        centralize 
+        ? {
+            justifyContent: 'center',
+            alignItems: 'center'
+        } 
+        : {}
+
     useEffect(() => {
-        if (hasRun.current) return
+        if (hasRun) return
 
         if (isUserRequired && !user.id) return
 
@@ -53,7 +65,7 @@ const BasePage: React.FC<BasePageProps> = ({
 
             fetchInitialData?.()
 
-            hasRun.current = true
+            setHasRun(true)
         }
 
         void init()
@@ -75,8 +87,14 @@ const BasePage: React.FC<BasePageProps> = ({
     ])
 
     return (
-        <main>
-            {hasRun.current ? (
+        <main
+            style={{
+                display: 'flex',
+                padding,
+                ...centralizeStyle
+            }}
+        >
+            {hasRun ? (
                 children
             ) : (
                 <PrimaryLoader
