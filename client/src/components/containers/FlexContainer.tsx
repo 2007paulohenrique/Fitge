@@ -1,9 +1,8 @@
-import { forwardRef } from 'react'
-import React, { type JSX } from 'react'
+import React from 'react'
 import { formatVariableName } from '../../utils/formatters/style/cssVariables'
+import { cssVarColors, type CssVarColors } from '../../utils/consts/cssVariables'
 
-type FlexContainerProps = {
-    tag?: keyof JSX.IntrinsicElements
+type BaseFlexProps = {
     flexDirection?: React.CSSProperties['flexDirection']
     gap?: string | number
     alignItems?: React.CSSProperties['alignItems']
@@ -18,13 +17,19 @@ type FlexContainerProps = {
     padding?: string | number
     margin?: string | number
     style?: React.CSSProperties
-    varBackgroundColor?: string
+    varBackgroundColor?: CssVarColors
     onClick?: () => void
     children?: React.ReactNode
-} & any
+}
 
-const FlexContainer = forwardRef<HTMLElement, FlexContainerProps>(({
-    tag: Tag = 'div',
+type HtmlTag = keyof React.JSX.IntrinsicElements
+
+type FlexContainerProps<T extends HtmlTag = 'div'> = BaseFlexProps & {
+    tag?: T
+} & Omit<React.ComponentPropsWithoutRef<T>, keyof BaseFlexProps | 'tag'>
+
+const FlexContainer = <T extends HtmlTag = 'div'>({
+    tag,
     flexDirection = 'column',
     gap = '1em',
     alignItems = 'center',
@@ -36,19 +41,20 @@ const FlexContainer = forwardRef<HTMLElement, FlexContainerProps>(({
     minHeight,
     minWidth = 'min-content',
     className,
-    padding = '0',
+    padding,
     margin,
     style,
-    varBackgroundColor = '--bg-color',
+    varBackgroundColor = cssVarColors.bgColor,
     onClick,
     children,
     ...rest
-}, ref) => {
+}: FlexContainerProps<T>) => {
+    const Tag = (tag || 'div') as React.ElementType
+
     const backgroundColor = formatVariableName(varBackgroundColor)
 
     return (
         <Tag
-            ref={ref}
             className={className}
             onClick={onClick}
             style={{
@@ -73,8 +79,6 @@ const FlexContainer = forwardRef<HTMLElement, FlexContainerProps>(({
             {children}
         </Tag>
     )
-})
-
-FlexContainer.displayName = 'FlexContainer'
+}
 
 export default FlexContainer
