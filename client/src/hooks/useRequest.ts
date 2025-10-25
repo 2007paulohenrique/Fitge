@@ -2,13 +2,13 @@ import { useCallback, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { formatResponseMessageForTranslation } from '../utils/formatters/responseMessages'
-import { postRefreshToken } from '../utils/consts/apiEndPoints'
+import { postRefreshTokenEndPoint } from '../utils/consts/apiEndPoints'
 import api from '../api/axios'
 import type { AxiosError, AxiosResponse } from 'axios'
 import { useSystemMessage } from '../app/contexts/systemMessageContext/useSystemMessage'
 
 export type ApiResponseData = {
-    result?: Record<string, any> | any[]
+    result?: Record<string, any>
     messageCode?: string
 }
 
@@ -37,7 +37,7 @@ export default function useRequest() {
 
     const refreshToken = useCallback(async (requestId: string): Promise<boolean> => {
         try {
-            await api.post(postRefreshToken)
+            await api.post(postRefreshTokenEndPoint)
 
             return true
 
