@@ -30,6 +30,8 @@ export async function userAuth(request: RequestInUseRequest, dispatch: AppDispat
 
     const onSuccess: SuccessHandler = (data) => {
         dispatch(setUser(data.result as UserState))
+
+        navigate('/')
     }
 
     const onError: ErrorHandler = () => {
