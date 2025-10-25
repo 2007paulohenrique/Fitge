@@ -34,5 +34,32 @@
         "forgotPassword": "Forgot your password?",
         "alreadyHaveAnAccount": "Already have an account?",
         "download": "Download"
+    },
+    "forms": {
+        "fields": {
+           "name": {
+                "label": "Full Name",
+                "placeholder": "Enter your name",
+                "alert": "The name must be up to 50 characters long. Use only letters and periods, and if necessary, write it abbreviated."
+            },
+            "nickname": {
+                "label": "Nickname",
+                "placeholder": "Enter your alternative name",
+                "alert": "The nickname must have between 3 and 15 characters long, without spaces or symbols. Think of something short and memorable."
+            },
+            "email": {
+                "label": "E-mail",
+                "placeholder": "Enter your e-mail",
+                "alert": "Invalid e-mail."
+            },
+            "password": {
+                "label": "Password",
+                "placeholder": "Enter your password",
+                "lengthValidation": "At least 8 characters",
+                "letterValidation": "At least one letter",
+                "numberValidation": "At least one number",
+                "symbolValidation": "At least one symbol"
+            }
+        }
     }
 }

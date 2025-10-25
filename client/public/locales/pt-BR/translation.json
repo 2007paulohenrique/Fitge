@@ -34,5 +34,32 @@
         "forgotPassword": "Esqueceu sua senha?",
         "alreadyHaveAnAccount": "Já tem uma conta?",
         "download": "Baixar"
+    },
+    "forms": {
+        "fields": {
+            "name": {
+                "label": "Nome Completo",
+                "placeholder": "Insira seu nome",
+                "alert": "O nome deve ter até 50 caracteres. Digite somente letras e pontos, e se necessário, escreva-o abreviado."
+            },
+            "nickname": {
+                "label": "Apelido",
+                "placeholder": "Insira seu nome alternativo",
+                "alert": "O apelido deve ter entre 3 e 15 caracteres, sem espaços ou símbolos. Pense em algo curto e memorável."
+            },
+            "email": {
+                "label": "E-mail",
+                "placeholder": "Insira seu e-mail",
+                "alert": "E-mail inválido."
+            },
+            "password": {
+                "label": "Senha",
+                "placeholder": "Insira sua senha",
+                "lengthValidation": "No mínimo 8 caracteres",
+                "letterValidation": "No mínimo uma letra",
+                "numberValidation": "No mínimo um número",
+                "symbolValidation": "No mínimo um símbolo"
+            }
+        }
     }
 }
