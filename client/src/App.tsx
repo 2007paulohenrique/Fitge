@@ -1,18 +1,18 @@
 import { Route, Routes } from 'react-router-dom'
 import LoginPage from './components/pages/login/LoginPage'
-import { loginRote, signUpRote } from './utils/consts/rotes'
+import { loginRoute, signUpRoute } from './utils/consts/routes'
 import SignUpPage from './components/pages/signUp/SignUpPage'
 
 function App() {
   return (
     <Routes>
       <Route 
-        path={loginRote}
+        path={loginRoute}
         element={<LoginPage />} 
       />
       
       <Route 
-        path={signUpRote}
+        path={signUpRoute}
         element={<SignUpPage />} 
       />
     </Routes>

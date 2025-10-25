@@ -7,7 +7,7 @@ import Link from "../../../ui/text/Link"
 import PrimaryButton from "../../../ui/buttons/PrimaryButton"
 import { setObjectDataInForm } from "../../../../utils/reactState.ts/setData"
 import type { SignUpErrors, SignUpUser } from "../types"
-import { policiesRote, termsAndConditionsRote } from "../../../../utils/consts/rotes"
+import { policiesRoute, termsAndConditionsRoute } from "../../../../utils/consts/routes"
 import { validateUserEmail, validateUserName, validateUserNickname, validateUserPassword } from "../../../../utils/validators/user"
 import PasswordInput from "../../../ui/formFields/common/PasswordInput"
 import UserNameInput from "../../../ui/formFields/specific/UserNameInput"
@@ -140,11 +140,11 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
                                     i18nKey='general.acceptTermsOfFitge'
                                     components={{ 
                                         termsLink: <Link
-                                            destiny={termsAndConditionsRote} 
+                                            destiny={termsAndConditionsRoute} 
                                             text={t('pages.termsAndConditions')} 
                                         />,
                                         policiesLink: <Link
-                                            destiny={policiesRote} 
+                                            destiny={policiesRoute} 
                                             text={t('pages.policies')} 
                                         /> 
                                     }}

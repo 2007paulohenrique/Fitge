@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import { aboutRoute, contentPolicyRoute, cookiesPolicyRoute, helpRoute, privacyAndSecurityPolicyRoute, termsAndConditionsRote } from "../../../utils/consts/rotes"
+import { aboutRoute, contentPolicyRoute, cookiesPolicyRoute, helpRoute, privacyAndSecurityPolicyRoute, termsAndConditionsRoute } from "../../../utils/consts/routes"
 import FlexContainer from "../../containers/FlexContainer"
 import FlexWrapContainer from "../../containers/FlexWrapContainer"
 import TextButton from "../../ui/buttons/TextButton"
@@ -42,7 +42,7 @@ const SecondaryFooter = () => {
         >
             <FlexWrapContainer
                 tag="ul"
-                padding={isMobile ? '0 1em 4em' : '0 5em 4em'}
+                padding={isMobile ? '0 1em' : '0 5em'}
                 style={{
                     color: formatVariableName(cssVarColors.grayColor),
                     textAlign: 'center'
@@ -59,7 +59,7 @@ const SecondaryFooter = () => {
                 />
                 
                 <NavigateListElement
-                    route={termsAndConditionsRote}
+                    route={termsAndConditionsRoute}
                     text={t('pages.termsAndConditions')}
                 />
                 

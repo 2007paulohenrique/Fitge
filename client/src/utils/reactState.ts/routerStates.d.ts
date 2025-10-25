@@ -1,4 +1,4 @@
-import type { identityConfirmationRote, setupSettingsRote, signUpRote } from "../consts/routes"
+import type { identityConfirmationRoute } from "../consts/routes"
 
 export type IdentityConfirmationState = {
     user: { 
@@ -7,5 +7,5 @@ export type IdentityConfirmationState = {
 }
 
 export type RouterStateMap = {
-    [identityConfirmationRote]: IdentityConfirmationState
+    [identityConfirmationRoute]: IdentityConfirmationState
 }
