@@ -3,3 +3,4 @@ export const postRefreshTokenEndPoint = '/token/refresh' as const
 export const loginEndPoint = '/login' as const
 export const signUpEndPoint = '/sign-up' as const
 export const authEndPoint = '/auth' as const
+export const identityConfirmationEndPoint = '/identity-confirmation' as const
