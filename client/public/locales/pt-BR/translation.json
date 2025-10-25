@@ -3,7 +3,8 @@
         "error": {
             "PAGE_ACCESS_ERROR": "Você não tem permissão para acessar essa página!",
             "UNKNOWN_ERROR": "Algum erro desconhecido ocorreu! envie uma mensagem ao nosso suporte ou tente novamente.",
-            "TIMEOUT_ERROR": "O servidor demorou muito para responder! Verifique sua conexão ou tente novamente."
+            "TIMEOUT_ERROR": "O servidor demorou muito para responder! Verifique sua conexão ou tente novamente.",
+            "LOGIN_ERROR": "E-mail ou senha inválidos."
         },
         "success": {
 

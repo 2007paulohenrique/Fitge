@@ -3,7 +3,8 @@
         "error": {
             "PAGE_ACCESS_ERROR": "",
             "UNKNOWN_ERROR": "",
-            "TIMEOUT_ERROR": ""
+            "TIMEOUT_ERROR": "",
+            "LOGIN_ERROR": ""
         },
         "success": {
 
