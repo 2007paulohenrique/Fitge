@@ -10,7 +10,17 @@
         }
     },
     "pages": {
-        "login": ""
+        "login": "",
+        "signUp": "",
+        "termsAndConditions": "",
+        "policies": "",
+        "recoverPassword": "",
+        "introduction": "",
+        "about": "",
+        "help": "",
+        "privacyAndSecurityPolicy": "",
+        "contentPolicy": "",
+        "cookiesPolicy": ""
     },
     "general": {
         "confirm": "",

@@ -10,7 +10,17 @@
         }
     },
     "pages": {
-        "login": "Iniciar sesión"
+        "login": "Iniciar Sesión",
+        "signUp": "Crear Cuenta",
+        "termsAndConditions": "Términos y Condiciones",
+        "policies": "Políticas",
+        "recoverPassword": "Recuperar Contraseña",
+        "introduction": "Introducción",
+        "about": "Acerca",
+        "help": "Ayuda",
+        "privacyAndSecurityPolicy": "Política de Privacidad y Seguridad",
+        "contentPolicy": "Política de Contenido",
+        "cookiesPolicy": "Política de Cookies"
     },
     "general": {
         "confirm": "Confirmar",
