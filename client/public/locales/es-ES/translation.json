@@ -61,5 +61,10 @@
                 "symbolValidation": "Al menos un símbolo"
             }
         }
+    },
+    "identity": {
+        "slogan": "Una nueva era para el fitness",
+        "shortIntroductionToFitge": "¡Únete a la plataforma más grande y divertida para culturistas y entusiastas del fitness!<br/><br/>Accede a Fitge <introductionLink/> para descubrir todo lo que puedes hacer al crear una cuenta en nuestra app.",
+        "copyright": "© 2025 Fitge by Paulo Barbosa. Todos los derechos reservados."
     }
 }

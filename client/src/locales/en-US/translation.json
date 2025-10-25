@@ -61,5 +61,10 @@
                 "symbolValidation": ""
             }
         }
+    },
+    "identity": {
+        "slogan": "",
+        "shortIntroductionToFitge": "",
+        "copyright": ""
     }
 }

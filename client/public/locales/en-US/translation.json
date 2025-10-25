@@ -61,5 +61,10 @@
                 "symbolValidation": "At least one symbol"
             }
         }
+    },
+    "identity": {
+        "slogan": "A new era for fitness",
+        "shortIntroductionToFitge": "Be part of the biggest and most fun platform for bodybuilders and fitness enthusiasts!<br/><br/>Access the Fitge <introductionLink/> to find out what you can do when you create an account on our app.",
+        "copyright": "© 2025 Fitge by Paulo Barbosa. All rights reserved."
     }
 }
