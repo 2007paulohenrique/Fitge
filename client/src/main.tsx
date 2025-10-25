@@ -7,6 +7,7 @@ import { Provider } from 'react-redux'
 import { store } from './app/store/store.ts'
 import { SystemMessageProvider } from './app/contexts/systemMessageContext/SystemMessageContext.tsx'
 import { BrowserRouter } from 'react-router-dom'
+import { ConfirmIdentityCallbackProvider } from './app/contexts/confirmIdentityCallbackContext/ConfirmIdentityCallbackContext.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -15,7 +16,9 @@ createRoot(document.getElementById('root')!).render(
     >
       <SystemMessageProvider>
         <BrowserRouter>
-          <App />
+          <ConfirmIdentityCallbackProvider>
+            <App />
+          </ConfirmIdentityCallbackProvider>
         </BrowserRouter>
       </SystemMessageProvider>
     </Provider>
