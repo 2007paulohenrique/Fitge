@@ -1,0 +1,14 @@
+export const loginRoute = '/login' as const
+export const signUpRoute = '/sign-up' as const
+export const recoverPasswordRoute = '/recover-password' as const
+export const identityConfirmationRoute = '/identity-confirmation' as const
+export const setupSettingsRoute = '/setup/settings' as const
+export const errorRoute = '/error' as const
+export const termsAndConditionsRoute = '/app/terms-and-conditions' as const
+export const policiesRoute = '/app/policies' as const
+export const introductionRoute = '/app/introduction' as const
+export const aboutRoute = '/app/about' as const
+export const helpRoute = '/app/help' as const
+export const privacyAndSecurityPolicyRoute = '/app/policies/privacy-and-security' as const
+export const contentPolicyRoute = '/app/policies/content' as const
+export const cookiesPolicyRoute = '/app/policies/cookies' as const
