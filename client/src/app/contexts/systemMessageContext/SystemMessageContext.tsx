@@ -1,8 +1,8 @@
 import { createContext, useRef, useCallback, type ReactNode } from 'react'
 import toast, { Toaster, type ToastOptions } from 'react-hot-toast'
-import styles from './SystemMessage.module.css'
 import { cssVarColors } from '../../../utils/consts/cssVariables'
 import ConfirmMessage from '../../../components/ui/messages/ConfirmMessage'
+import { formatVariableName } from '../../../utils/formatters/style/cssVariables'
 
 type NotifyType = 'success' | 'error' | 'loading'
 
@@ -29,7 +29,15 @@ export function SystemMessageProvider({
         const toastId = id ?? String(Math.random())
 
         const commonProps: ToastOptions = {
-            className: styles.message_toast,
+            style: {
+                backgroundColor: formatVariableName(cssVarColors.bgColor),
+                color: formatVariableName(cssVarColors.textColor),
+                borderRadius: '10px',
+                border: `2px solid ${formatVariableName(cssVarColors.textColor)}`,
+                padding: '0.5em 0.5em 0.5em 1em',
+                letterSpacing: '0.5px',
+                maxWidth: '30em'
+            },
             duration: 5000,
             position: 'top-right',
             id: toastId
@@ -40,8 +48,8 @@ export function SystemMessageProvider({
                 toast.success(message, {
                     ...commonProps,
                     iconTheme: {
-                        primary: cssVarColors.successColor,
-                        secondary: 'var(--bg-color)'
+                        primary: formatVariableName(cssVarColors.successColor),
+                        secondary: formatVariableName(cssVarColors.bgColor)
                     }
                 })
 
@@ -51,8 +59,8 @@ export function SystemMessageProvider({
                 toast.error(message, {
                     ...commonProps,
                     iconTheme: {
-                        primary: cssVarColors.alertColor,
-                        secondary: 'var(--bg-color)'
+                        primary: formatVariableName(cssVarColors.alertColor),
+                        secondary: formatVariableName(cssVarColors.bgColor)
                     }
                 })
 
