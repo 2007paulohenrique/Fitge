@@ -25,6 +25,14 @@
     },
     "general": {
         "confirm": "Confirm",
-        "cancel": "Cancel"
+        "cancel": "Cancel",
+        "acceptTermsOfFitge": "By clicking the box next to it, you agree to Fitge's <termsLink/>, and <policiesLink/>.",
+        "logIntoExistingAccount": "Log into existing account",
+        "checkData": "Check Data",
+        "or": "or",
+        "checkPolicyLink": "See <link/> for more information.",
+        "forgotPassword": "Forgot your password?",
+        "alreadyHaveAnAccount": "Already have an account?",
+        "download": "Download"
     }
 }

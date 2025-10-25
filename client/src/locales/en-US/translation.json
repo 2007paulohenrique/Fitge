@@ -25,6 +25,14 @@
     },
     "general": {
         "confirm": "",
-        "cancel": ""
+        "cancel": "",
+        "acceptTermsOfFitge": "",
+        "logIntoExistingAccount": "",
+        "checkData": "",
+        "or": "",
+        "checkPolicyLink": "",
+        "forgotPassword": "",
+        "alreadyHaveAnAccount": "",
+        "download": ""
     }
 }
