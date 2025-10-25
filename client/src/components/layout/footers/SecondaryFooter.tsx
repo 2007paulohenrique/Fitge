@@ -1,13 +1,13 @@
-import { useNavigate } from "react-router-dom"
-import { aboutRoute, contentPolicyRoute, cookiesPolicyRoute, helpRoute, privacyAndSecurityPolicyRoute, termsAndConditionsRoute } from "../../../utils/consts/routes"
-import FlexContainer from "../../containers/FlexContainer"
-import FlexWrapContainer from "../../containers/FlexWrapContainer"
-import TextButton from "../../ui/buttons/TextButton"
-import { useTranslation } from "react-i18next"
-import type React from "react"
-import { formatVariableName } from "../../../utils/formatters/style/cssVariables"
-import { cssVarColors } from "../../../utils/consts/cssVariables"
-import useWindowSize from "../../../hooks/useWindowSize"
+import { useNavigate } from 'react-router-dom'
+import { aboutRoute, contentPolicyRoute, cookiesPolicyRoute, helpRoute, privacyAndSecurityPolicyRoute, termsAndConditionsRoute } from '../../../utils/consts/routes'
+import FlexContainer from '../../containers/FlexContainer'
+import FlexWrapContainer from '../../containers/FlexWrapContainer'
+import TextButton from '../../ui/buttons/TextButton'
+import { useTranslation } from 'react-i18next'
+import type React from 'react'
+import { formatVariableName } from '../../../utils/formatters/style/cssVariables'
+import { cssVarColors } from '../../../utils/consts/cssVariables'
+import useWindowSize from '../../../hooks/useWindowSize'
 
 const SecondaryFooter = () => {
     const { t } = useTranslation()
@@ -41,7 +41,7 @@ const SecondaryFooter = () => {
             tag='footer'
         >
             <FlexWrapContainer
-                tag="ul"
+                tag='ul'
                 padding={isMobile ? '0 1em' : '0 5em'}
                 style={{
                     color: formatVariableName(cssVarColors.grayColor),

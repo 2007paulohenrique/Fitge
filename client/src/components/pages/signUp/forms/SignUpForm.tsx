@@ -1,19 +1,19 @@
-import { Trans, useTranslation } from "react-i18next"
-import BaseForm from "../../../base/BaseForm"
-import FlexContainer from "../../../containers/FlexContainer"
-import AcceptCheckBox from "../../../ui/formFields/common/AcceptCheckBox"
-import Title from "../../../ui/text/Title"
-import Link from "../../../ui/text/Link"
-import PrimaryButton from "../../../ui/buttons/PrimaryButton"
-import { setObjectDataInForm } from "../../../../utils/reactState.ts/setData"
-import type { SignUpErrors, SignUpUser } from "../types"
-import { policiesRoute, termsAndConditionsRoute } from "../../../../utils/consts/routes"
-import { validateUserEmail, validateUserName, validateUserNickname, validateUserPassword } from "../../../../utils/validators/user"
-import PasswordInput from "../../../ui/formFields/common/PasswordInput"
-import UserNameInput from "../../../ui/formFields/specific/UserNameInput"
-import NicknameInput from "../../../ui/formFields/specific/NicknameInput"
-import EmailInput from "../../../ui/formFields/specific/EmailInput"
-import IconIllustration from "../../../ui/illustrations/IconIllustration"
+import { Trans, useTranslation } from 'react-i18next'
+import BaseForm from '../../../base/BaseForm'
+import FlexContainer from '../../../containers/FlexContainer'
+import AcceptCheckBox from '../../../ui/formFields/common/AcceptCheckBox'
+import Title from '../../../ui/text/Title'
+import Link from '../../../ui/text/Link'
+import PrimaryButton from '../../../ui/buttons/PrimaryButton'
+import { setObjectDataInForm } from '../../../../utils/reactState.ts/setData'
+import type { SignUpErrors, SignUpUser } from '../types'
+import { policiesRoute, termsAndConditionsRoute } from '../../../../utils/consts/routes'
+import { validateUserEmail, validateUserName, validateUserNickname, validateUserPassword } from '../../../../utils/validators/user'
+import PasswordInput from '../../../ui/formFields/common/PasswordInput'
+import UserNameInput from '../../../ui/formFields/specific/UserNameInput'
+import NicknameInput from '../../../ui/formFields/specific/NicknameInput'
+import EmailInput from '../../../ui/formFields/specific/EmailInput'
+import IconIllustration from '../../../ui/illustrations/IconIllustration'
 import FitgeIcon from '../../../../assets/fitgeIdentity/icon.svg?react'
 
 type SignUpFormProps = {
@@ -39,7 +39,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
     acceptTerms,
     setAcceptTerms
 }) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation()
 
     return (
         <FlexContainer

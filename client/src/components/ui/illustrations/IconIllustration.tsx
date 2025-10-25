@@ -41,7 +41,7 @@ const IconIllustration: React.FC<IconIllustrationProps> = ({
                 <img
                     src={src}
                     alt={name}
-                    loading="lazy"
+                    loading='lazy'
                 />
             ) : null}
         </div>

@@ -1,4 +1,4 @@
-import type { authEndPoint, identityConfirmationEndPoint, loginEndPoint, signUpEndPoint } from "../consts/apiEndPoints"
+import type { authEndPoint, identityConfirmationEndPoint, loginEndPoint, signUpEndPoint } from '../consts/apiEndPoints'
 
 export type SignUpFormData = {
     name: string

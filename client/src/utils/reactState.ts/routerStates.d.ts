@@ -1,4 +1,4 @@
-import type { identityConfirmationRoute } from "../consts/routes"
+import type { identityConfirmationRoute } from '../consts/routes'
 
 export type IdentityConfirmationState = {
     user: { 
