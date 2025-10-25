@@ -20,6 +20,7 @@ const EmailInput: React.FC<EmailInputProps> = ({
 
     return (
         <BaseInput
+            type='email'
             name={name}
             placeholder={t('forms.fields.email.placeholder')}
             value={value}
