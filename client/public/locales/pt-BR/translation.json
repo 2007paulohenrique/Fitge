@@ -66,5 +66,13 @@
         "slogan": "Uma nova era para o fitness",
         "shortIntroductionToFitge": "Faça parte da maior e mais divertida plataforma para praticantes de musculação e admiradores do mundo fitness!<br/><br/>Acesse a <introductionLink/> do Fitge para saber o que você pode fazer ao criar uma conta em nosso aplicativo.",
         "copyright": "© 2025 Fitge by Paulo Barbosa. Todos os direitos reservados."
+    },
+    "requests": {
+        "signUp": {
+            "loading": "Verificando dados"
+        },
+        "login": {
+            "loading": "Verificando dados"
+        }
     }
 }

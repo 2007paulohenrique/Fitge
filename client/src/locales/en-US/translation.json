@@ -66,5 +66,13 @@
         "slogan": "",
         "shortIntroductionToFitge": "",
         "copyright": ""
+    },
+    "requests": {
+        "signUp": {
+            "loading": ""
+        },
+        "login": {
+            "loading": ""
+        }
     }
 }
