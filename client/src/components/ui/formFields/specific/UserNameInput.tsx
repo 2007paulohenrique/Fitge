@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import BaseInput from '../common/BaseInput'
 import NameIcon from '../../../../assets/icons/name.svg?react'
-import { nameMaxLength } from '../../../../utils/consts/dataLimits'
+import { nameMaxLength } from '../../../../utils/constraints/userConstraints'
 
 type UserNameInputProps = {
     name?: string

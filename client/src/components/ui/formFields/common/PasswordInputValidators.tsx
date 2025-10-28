@@ -3,9 +3,10 @@ import { useTranslation } from 'react-i18next'
 import FlexContainer from '../../../containers/FlexContainer'
 import { formatVariableName } from '../../../../utils/formatters/style/cssVariables'
 import { cssVarColors, cssVarTextSizes } from '../../../../utils/consts/cssVariables'
-import { hasLetterRegex, hasNumberRegex, hasSymbolRegex, passwordMinLength } from '../../../../utils/consts/dataLimits'
+import { hasSimpleLetter, hasNumber, hasSymbol } from '../../../../utils/constraints/regex'
 import { validateUserPassword } from '../../../../utils/validators/user'
 import { useMemo } from 'react'
+import { passwordMinLength } from '../../../../utils/constraints/userConstraints'
 
 type PasswordInputValidatorsProps = {
     password: string
@@ -59,17 +60,17 @@ const PasswordInputValidators: React.FC<PasswordInputValidatorsProps> = ({
                 />
     
                 <PasswordInputValidatorListElement
-                    hasValidated={hasLetterRegex.test(password)}
+                    hasValidated={hasSimpleLetter.test(password)}
                     passwordValidationTranslationKey='letterValidation'
                 />
     
                 <PasswordInputValidatorListElement
-                    hasValidated={hasNumberRegex.test(password)}
+                    hasValidated={hasNumber.test(password)}
                     passwordValidationTranslationKey='numberValidation'
                 />
     
                 <PasswordInputValidatorListElement
-                    hasValidated={hasSymbolRegex.test(password)}
+                    hasValidated={hasSymbol.test(password)}
                     passwordValidationTranslationKey='symbolValidation'
                 />
             </FlexContainer>

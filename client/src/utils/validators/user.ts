@@ -1,4 +1,4 @@
-import { emailMaxLength, emailRegex, nameMaxLength, nameRegex, nicknameMaxLength, nicknameMinLength, nicknameRegex, passwordMaxLength, passwordMinLength, passwordRegex } from '../consts/dataLimits'
+import { emailMaxLength, emailRegex, nameMaxLength, nameRegex, nicknameMaxLength, nicknameMinLength, nicknameRegex, passwordMaxLength, passwordMinLength, passwordRegex } from '../constraints/userConstraints'
 
 function isRequiredValid(isRequired: boolean, value: any): boolean {
     return (

@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import BaseInput from '../common/BaseInput'
 import EmailIcon from '../../../../assets/icons/email.svg?react'
-import { emailMaxLength } from '../../../../utils/consts/dataLimits'
+import { emailMaxLength } from '../../../../utils/constraints/userConstraints'
 
 type EmailInputProps = {
     name?: string

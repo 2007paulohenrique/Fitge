@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import BaseInput from '../common/BaseInput'
 import NicknameIcon from '../../../../assets/icons/nickname.svg?react'
-import { nicknameMaxLength } from '../../../../utils/consts/dataLimits'
+import { nicknameMaxLength } from '../../../../utils/constraints/userConstraints'
 
 type NicknameInputProps = {
     name?: string
