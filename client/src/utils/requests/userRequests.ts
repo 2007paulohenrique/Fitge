@@ -4,13 +4,13 @@ import { setUser } from '../../app/store/slices/user/userSlice'
 import type { UserState } from '../../app/store/slices/user/userStates'
 import type { AppDispatch } from '../../app/store/store'
 import type { ErrorHandler, RequestFunction, RequestInUseRequest, SuccessHandler } from '../../hooks/useRequest'
-import { authEndPoint, getUserMeTypeEndPoint } from '../consts/apiEndPoints'
+import { AUTH_ENDPOINT, GET_USER_ME_TYPE_ENDPOINT } from '../consts/apiEndPoints'
 import { loginRoute } from '../consts/routes'
 
 export async function getUserType(request: RequestInUseRequest): Promise<string | null> {
     let userType: string | null = null
 
-    const getRequest: RequestFunction = () => api.get(getUserMeTypeEndPoint)
+    const getRequest: RequestFunction = () => api.get(GET_USER_ME_TYPE_ENDPOINT)
 
     const onSuccess: SuccessHandler = (data) => {
         userType = data.result?.type
@@ -26,7 +26,7 @@ export async function getUserType(request: RequestInUseRequest): Promise<string 
 }
 
 export async function userAuth(request: RequestInUseRequest, dispatch: AppDispatch, navigate: NavigateFunction, formData: FormData): Promise<void> {
-    const postRequest: RequestFunction = () => api.post(authEndPoint, formData)
+    const postRequest: RequestFunction = () => api.post(AUTH_ENDPOINT, formData)
 
     const onSuccess: SuccessHandler = (data) => {
         dispatch(setUser(data.result as UserState))

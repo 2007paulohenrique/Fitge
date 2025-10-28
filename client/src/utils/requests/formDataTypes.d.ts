@@ -1,4 +1,4 @@
-import type { authEndPoint, identityConfirmationEndPoint, loginEndPoint, signUpEndPoint } from '../consts/apiEndPoints'
+import type { AUTH_ENDPOINT, IDENTITY_CONFIRMATION_ENDPOINT, LOGIN_ENDPOINT, SIGN_UP_ENDPOINT } from '../consts/apiEndPoints'
 
 export type SignUpFormData = {
     name: string
@@ -21,8 +21,8 @@ export type IdentityConfirmationFormData = {
 }
 
 export type ApiFormDataMap = {
-    [signUpEndPoint]: SignUpFormData
-    [loginEndPoint]: LoginFormData
-    [authEndPoint]: AuthFormData
-    [identityConfirmationEndPoint]: IdentityConfirmationFormData
+    [SIGN_UP_ENDPOINT]: SignUpFormData
+    [LOGIN_ENDPOINT]: LoginFormData
+    [AUTH_ENDPOINT]: AuthFormData
+    [IDENTITY_CONFIRMATION_ENDPOINT]: IdentityConfirmationFormData
 }

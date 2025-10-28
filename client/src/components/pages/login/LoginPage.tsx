@@ -20,7 +20,7 @@ import { loginSecureIdKey } from '../../../utils/consts/cacheKeys'
 import useStatedNavigate from '../../../hooks/useStatedNavigate'
 import api from '../../../api/axios'
 import { userAuth } from '../../../utils/requests/userRequests'
-import { authEndPoint, loginEndPoint } from '../../../utils/consts/apiEndPoints'
+import { AUTH_ENDPOINT, LOGIN_ENDPOINT } from '../../../utils/consts/apiEndPoints'
 import { useAppDispatch } from '../../../hooks/useAppDispatch'
 import { useNavigate } from 'react-router-dom'
 
@@ -35,8 +35,8 @@ const LoginPage = () => {
 
     const dispatch = useAppDispatch()
     
-    const { formData: loginFormData, appendFormDataValue: appendLoginFormDataValue } = useFormData(loginEndPoint)
-    const { formData: authFormData, appendFormDataValue: appendAuthFormDataValue } = useFormData(authEndPoint)
+    const { formData: loginFormData, appendFormDataValue: appendLoginFormDataValue } = useFormData(LOGIN_ENDPOINT)
+    const { formData: authFormData, appendFormDataValue: appendAuthFormDataValue } = useFormData(AUTH_ENDPOINT)
 
     const { setOnConfirmIdentity } = useConfirmIdentityCallback()
 
@@ -70,7 +70,7 @@ const LoginPage = () => {
         appendLoginFormDataValue('password', loginUser.password)
 
         loginRequest(
-            () => api.post(loginEndPoint, loginFormData),
+            () => api.post(LOGIN_ENDPOINT, loginFormData),
             onLoginSuccess,
             undefined,
             t('requests.login.loading'),

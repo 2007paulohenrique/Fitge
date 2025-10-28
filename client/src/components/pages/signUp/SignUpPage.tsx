@@ -24,7 +24,7 @@ import { setSessionStorageItem } from '../../../utils/cache/sessionStorage'
 import { createAccounSecureIdKey } from '../../../utils/consts/cacheKeys'
 import useFormData from '../../../hooks/useFormData'
 import { useConfirmIdentityCallback } from '../../../app/contexts/confirmIdentityCallbackContext/useConfirmIdentityCallback'
-import { signUpEndPoint } from '../../../utils/consts/apiEndPoints'
+import { SIGN_UP_ENDPOINT } from '../../../utils/consts/apiEndPoints'
 
 const SignUpPage = () => {
     const { t } = useTranslation()
@@ -34,7 +34,7 @@ const SignUpPage = () => {
 
     const { request } = useRequest()
 
-    const { formData, appendFormDataValue } = useFormData(signUpEndPoint)
+    const { formData, appendFormDataValue } = useFormData(SIGN_UP_ENDPOINT)
 
     const { setOnConfirmIdentity } = useConfirmIdentityCallback()
 
@@ -66,7 +66,7 @@ const SignUpPage = () => {
         appendFormDataValue('password', signUpUser.password)
 
         request(
-            () => api.post(signUpEndPoint, formData),
+            () => api.post(SIGN_UP_ENDPOINT, formData),
             onSignUpSuccess,
             undefined,
             t('requests.signUp.loading'),
