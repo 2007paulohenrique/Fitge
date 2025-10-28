@@ -13,7 +13,7 @@ import Description from '../../ui/text/Description'
 import useWindowSize from '../../../hooks/useWindowSize'
 import TextButton from '../../ui/buttons/TextButton'
 import Link from '../../ui/text/Link'
-import { identityConfirmationRoute, introductionRoute, loginRoute, setupSettingsRoute } from '../../../utils/consts/routes'
+import { IDENTITY_CONFIRMATION_ROUTE, INTRODUCTION_ROUTE, LOGIN_ROUTE, SETUP_SETTINGS_ROUTE } from '../../../utils/consts/routes'
 import { cssVarTextSizes } from '../../../utils/consts/cssVariables'
 import SecondaryFooter from '../../layout/footers/SecondaryFooter'
 import useRequest, { type ApiResponseData } from '../../../hooks/useRequest'
@@ -49,9 +49,9 @@ const SignUpPage = () => {
         const onSignUpSuccess = (data: ApiResponseData) => {
             setSessionStorageItem(CREATE_ACCOUNT_SECURE_ID_KEY, data.result?.secureId)
 
-            setOnConfirmIdentity(() => navigate(setupSettingsRoute))
+            setOnConfirmIdentity(() => navigate(SETUP_SETTINGS_ROUTE))
 
-            statedNavigate(identityConfirmationRoute, { 
+            statedNavigate(IDENTITY_CONFIRMATION_ROUTE, { 
                 state: {
                     user: {
                         email: signUpUser.email
@@ -127,7 +127,7 @@ const SignUpPage = () => {
 
                             <TextButton
                                 text={t('pages.login')}
-                                onClick={() => navigate(loginRoute)}
+                                onClick={() => navigate(LOGIN_ROUTE)}
                             />
                         </BaseCard>
                     </FlexContainer>
@@ -175,7 +175,7 @@ const SignUpPage = () => {
                                         i18nKey='identity.shortIntroductionToFitge'
                                         components={{ 
                                             introductionLink: <Link
-                                                destiny={introductionRoute} 
+                                                destiny={INTRODUCTION_ROUTE} 
                                                 text={t('pages.introduction')} 
                                             />
                                         }}

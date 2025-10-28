@@ -9,7 +9,7 @@ import type { LoginUser } from '../types'
 import PasswordInput from '../../../ui/formFields/common/PasswordInput'
 import EmailInput from '../../../ui/formFields/specific/EmailInput'
 import { useNavigate } from 'react-router-dom'
-import { signUpRoute } from '../../../../utils/consts/routes'
+import { SIGN_UP_ROUTE } from '../../../../utils/consts/routes'
 import FitgeIcon from '../../../../assets/fitgeIdentity/icon.svg?react'
 import IconIllustration from '../../../ui/illustrations/IconIllustration'
 
@@ -106,7 +106,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
 
                         <TextButton
                             text={t('pages.signUp')}
-                            onClick={() => navigate(signUpRoute)}
+                            onClick={() => navigate(SIGN_UP_ROUTE)}
                         />
                     </FlexContainer>
                 </FlexContainer>

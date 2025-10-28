@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { aboutRoute, contentPolicyRoute, cookiesPolicyRoute, helpRoute, privacyAndSecurityPolicyRoute, termsAndConditionsRoute } from '../../../utils/consts/routes'
+import { ABOUT_ROUTE, CONTENT_POLICY_ROUTE, COOKIES_POLICY_ROUTE, HELP_ROUTE, PRIVACY_AND_SECURITY_POLICY_ROUTE, TERMS_AND_CONDITIONS_ROUTE } from '../../../utils/consts/routes'
 import FlexContainer from '../../containers/FlexContainer'
 import FlexWrapContainer from '../../containers/FlexWrapContainer'
 import TextButton from '../../ui/buttons/TextButton'
@@ -49,32 +49,32 @@ const SecondaryFooter = () => {
                 }}
             >
                 <NavigateListElement
-                    route={aboutRoute}
+                    route={ABOUT_ROUTE}
                     text={t('pages.about')}
                 />
                 
                 <NavigateListElement
-                    route={helpRoute}
+                    route={HELP_ROUTE}
                     text={t('pages.help')}
                 />
                 
                 <NavigateListElement
-                    route={termsAndConditionsRoute}
+                    route={TERMS_AND_CONDITIONS_ROUTE}
                     text={t('pages.termsAndConditions')}
                 />
                 
                 <NavigateListElement
-                    route={privacyAndSecurityPolicyRoute}
+                    route={PRIVACY_AND_SECURITY_POLICY_ROUTE}
                     text={t('pages.privacyAndSecurityPolicy')}
                 />
                 
                 <NavigateListElement
-                    route={contentPolicyRoute}
+                    route={CONTENT_POLICY_ROUTE}
                     text={t('pages.contentPolicy')}
                 />
                 
                 <NavigateListElement
-                    route={cookiesPolicyRoute}
+                    route={COOKIES_POLICY_ROUTE}
                     text={t('pages.cookiesPolicy')}
                 />
 

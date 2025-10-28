@@ -7,7 +7,7 @@ import LoginForm from './forms/LoginForm'
 import BaseCard from '../../ui/cards/BaseCard'
 import { cssVarColors } from '../../../utils/consts/cssVariables'
 import TextButton from '../../ui/buttons/TextButton'
-import { identityConfirmationRoute, recoverPasswordRoute } from '../../../utils/consts/routes'
+import { IDENTITY_CONFIRMATION_ROUTE, RECOVER_PASSWORD_ROUTE } from '../../../utils/consts/routes'
 import Description from '../../ui/text/Description'
 import useWindowSize from '../../../hooks/useWindowSize'
 import SecondaryFooter from '../../layout/footers/SecondaryFooter'
@@ -57,7 +57,7 @@ const LoginPage = () => {
                 userAuth(authRequest, dispatch, navigate, authFormData)
             })
 
-            statedNavigate(identityConfirmationRoute, { 
+            statedNavigate(IDENTITY_CONFIRMATION_ROUTE, { 
                 state: {
                     user: {
                         email: loginUser.email
@@ -128,7 +128,7 @@ const LoginPage = () => {
 
                             <TextButton
                                 text={t('pages.recoverPassword')}
-                                onClick={() => navigate(recoverPasswordRoute)}
+                                onClick={() => navigate(RECOVER_PASSWORD_ROUTE)}
                                 varColor={cssVarColors.alertColor}
                             />
                         </BaseCard>
