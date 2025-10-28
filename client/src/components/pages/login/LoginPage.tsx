@@ -16,7 +16,7 @@ import { setSessionStorageItem } from '../../../utils/cache/sessionStorage'
 import useRequest from '../../../hooks/useRequest'
 import useFormData from '../../../hooks/useFormData'
 import { useConfirmIdentityCallback } from '../../../app/contexts/confirmIdentityCallbackContext/useConfirmIdentityCallback'
-import { loginSecureIdKey } from '../../../utils/consts/cacheKeys'
+import { LOGIN_SECURE_ID_KEY } from '../../../utils/consts/cacheKeys'
 import useStatedNavigate from '../../../hooks/useStatedNavigate'
 import api from '../../../api/axios'
 import { userAuth } from '../../../utils/requests/userRequests'
@@ -49,7 +49,7 @@ const LoginPage = () => {
         const onLoginSuccess = (data: ApiResponseData) => {
             const secureId = data.result?.secureId
 
-            setSessionStorageItem(loginSecureIdKey, secureId)
+            setSessionStorageItem(LOGIN_SECURE_ID_KEY, secureId)
 
             setOnConfirmIdentity(() => {
                 appendAuthFormDataValue('secureId', secureId)

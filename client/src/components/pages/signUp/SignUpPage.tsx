@@ -21,7 +21,7 @@ import api from '../../../api/axios'
 import useStatedNavigate from '../../../hooks/useStatedNavigate'
 import { useNavigate } from 'react-router-dom'
 import { setSessionStorageItem } from '../../../utils/cache/sessionStorage'
-import { createAccounSecureIdKey } from '../../../utils/consts/cacheKeys'
+import { CREATE_ACCOUNT_SECURE_ID_KEY } from '../../../utils/consts/cacheKeys'
 import useFormData from '../../../hooks/useFormData'
 import { useConfirmIdentityCallback } from '../../../app/contexts/confirmIdentityCallbackContext/useConfirmIdentityCallback'
 import { SIGN_UP_ENDPOINT } from '../../../utils/consts/apiEndPoints'
@@ -47,7 +47,7 @@ const SignUpPage = () => {
 
     const onSignUpSubmit = useCallback(() => {
         const onSignUpSuccess = (data: ApiResponseData) => {
-            setSessionStorageItem(createAccounSecureIdKey, data.result?.secureId)
+            setSessionStorageItem(CREATE_ACCOUNT_SECURE_ID_KEY, data.result?.secureId)
 
             setOnConfirmIdentity(() => navigate(setupSettingsRoute))
 
