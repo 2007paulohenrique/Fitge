@@ -6,7 +6,7 @@ import { cssVarColors, cssVarTextSizes } from '../../../../utils/consts/cssVaria
 import { HAS_SIMPLE_LETTER, HAS_NUMBER, HAS_SYMBOL } from '../../../../utils/constraints/regex'
 import { validateUserPassword } from '../../../../utils/validators/user'
 import { useMemo } from 'react'
-import { passwordMinLength } from '../../../../utils/constraints/userConstraints'
+import { PASSWORD_MIN_LENGTH } from '../../../../utils/constraints/userConstraints'
 
 type PasswordInputValidatorsProps = {
     password: string
@@ -55,7 +55,7 @@ const PasswordInputValidators: React.FC<PasswordInputValidatorsProps> = ({
                 }}
             >
                 <PasswordInputValidatorListElement
-                    hasValidated={password.length >= passwordMinLength}
+                    hasValidated={password.length >= PASSWORD_MIN_LENGTH}
                     passwordValidationTranslationKey='lengthValidation'
                 />
     

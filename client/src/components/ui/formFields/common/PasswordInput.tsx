@@ -5,7 +5,7 @@ import Description from '../../text/Description'
 import { cssVarColors, cssVarTextSizes } from '../../../../utils/consts/cssVariables'
 import { formatVariableName } from '../../../../utils/formatters/style/cssVariables'
 import ClickableIcon from '../../buttons/ClickableIcon'
-import { passwordMaxLength } from '../../../../utils/constraints/userConstraints'
+import { PASSWORD_MAX_LENGTH } from '../../../../utils/constraints/userConstraints'
 import type { BaseInputProps } from './BaseInput'
 import PasswordIcon from '../../../../assets/icons/password.svg?react'
 import VisiblePasswordIcon from '../../../../assets/icons/visible-password.svg?react'
@@ -87,7 +87,7 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
                             e.target.value = e.target.value.replace(/\s/g, '')
                             onChange(e)
                         }}
-                        maxLength={passwordMaxLength}
+                        maxLength={PASSWORD_MAX_LENGTH}
                         readOnly={!onChange}
                         required
                         className={(!!value && hasError) ? styles.error : ''}

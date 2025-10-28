@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import BaseInput from '../common/BaseInput'
 import NameIcon from '../../../../assets/icons/name.svg?react'
-import { nameMaxLength } from '../../../../utils/constraints/userConstraints'
+import { NAME_MAX_LENGTH } from '../../../../utils/constraints/userConstraints'
 
 type UserNameInputProps = {
     name?: string
@@ -28,7 +28,7 @@ const UserNameInput: React.FC<UserNameInputProps> = ({
             label={t('forms.fields.name.label')}
             alertMessage={t('forms.fields.name.alert')}
             hasError={hasError}
-            maxLength={nameMaxLength}
+            maxLength={NAME_MAX_LENGTH}
             isRequired
         />
     )

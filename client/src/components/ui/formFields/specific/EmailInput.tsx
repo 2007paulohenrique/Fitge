@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import BaseInput from '../common/BaseInput'
 import EmailIcon from '../../../../assets/icons/email.svg?react'
-import { emailMaxLength } from '../../../../utils/constraints/userConstraints'
+import { EMAIL_MAX_LENGTH } from '../../../../utils/constraints/userConstraints'
 
 type EmailInputProps = {
     name?: string
@@ -29,7 +29,7 @@ const EmailInput: React.FC<EmailInputProps> = ({
             label={t('forms.fields.email.label')}
             alertMessage={t('forms.fields.email.alert')}
             hasError={hasError}
-            maxLength={emailMaxLength}
+            maxLength={EMAIL_MAX_LENGTH}
             isRequired
         />
     )

@@ -1,4 +1,4 @@
-import { emailMaxLength, emailRegex, nameMaxLength, nameRegex, nicknameMaxLength, nicknameMinLength, nicknameRegex, passwordMaxLength, passwordMinLength, passwordRegex } from '../constraints/userConstraints'
+import { EMAIL_MAX_LENGTH, EMAIL_REGEX, NAME_MAX_LENGTH, NAME_REGEX, NICKNAME_MAX_LENGTH, NICKNAME_MIN_LENGTH, NICKNAME_REGEX, PASSWORD_MAX_LENGTH, PASSWORD_MIN_LENGTH, PASSWORD_REGEX } from '../constraints/userConstraints'
 
 function isRequiredValid(isRequired: boolean, value: any): boolean {
     return (
@@ -11,34 +11,34 @@ function isRequiredValid(isRequired: boolean, value: any): boolean {
 export function validateUserName(name: string, isRequired: boolean = false): boolean { 
     return (
         isRequiredValid(isRequired, name) &&
-        nameRegex.test(name) && 
-        name.length <= nameMaxLength
+        NAME_REGEX.test(name) && 
+        name.length <= NAME_MAX_LENGTH
     )
 }
 
 export function validateUserNickname(nickname: string, isRequired: boolean = false): boolean {
     return (
         isRequiredValid(isRequired, nickname) &&
-        nicknameRegex.test(nickname) && 
-        nickname.length <= nicknameMaxLength && 
-        nickname.length >= nicknameMinLength
+        NICKNAME_REGEX.test(nickname) && 
+        nickname.length <= NICKNAME_MAX_LENGTH && 
+        nickname.length >= NICKNAME_MIN_LENGTH
     )
 }
 
 export function validateUserEmail(email: string, isRequired: boolean = false): boolean {
     return (
         isRequiredValid(isRequired, email) &&
-        emailRegex.test(email) && 
-        email.length <= emailMaxLength
+        EMAIL_REGEX.test(email) && 
+        email.length <= EMAIL_MAX_LENGTH
     )
 }
 
 export function validateUserPassword(password: string, isRequired: boolean = false): boolean {
     return (
         isRequiredValid(isRequired, password) &&
-        passwordRegex.test(password) && 
+        PASSWORD_REGEX.test(password) && 
         !/\s/.test(password) && 
-        password.length <= passwordMaxLength && 
-        password.length >= passwordMinLength
+        password.length <= PASSWORD_MAX_LENGTH && 
+        password.length >= PASSWORD_MIN_LENGTH
     )
 }
