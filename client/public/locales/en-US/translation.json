@@ -76,5 +76,9 @@
         "login": {
             "loading": "Verifying data"
         }
-    }
+    },
+    "instructions": {
+        "confirmIdentityInstruction": "Enter the 6-character code sent to you in the boxes below.",
+        "accessCodeInEmailInstruction": "We sent the code to <email/>. Go to your e-mail application and look for the message with the code."    
+    }  
 }
