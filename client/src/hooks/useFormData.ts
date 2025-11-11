@@ -1,12 +1,12 @@
 import { useMemo } from 'react';
-import type { ApiFormDataMap } from '../utils/requests/formDataTypes';
+import type { ApiRequestDataMap } from '../utils/requests/requestDataTypes'
 
-export default function useFormData<T extends keyof ApiFormDataMap>(_route: T) {
+export default function useFormData<T extends keyof ApiRequestDataMap>(_route: T) {
     const formData = useMemo(() => new FormData(), [])
 
-    function appendFormDataValue<K extends keyof ApiFormDataMap[T]>(
+    function appendFormDataValue<K extends keyof ApiRequestDataMap[T]>(
         key: K,
-        value: ApiFormDataMap[T][K]
+        value: ApiRequestDataMap[T][K]
     ) {
         if (value === undefined || value === null) return
         
