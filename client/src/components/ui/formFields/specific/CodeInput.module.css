@@ -1,0 +1,15 @@
+input.code_input {
+    font-size: var(--large-title-size);
+    width: 1.2em;
+    height: 1.5em;
+    text-align: center;
+    border: 2px solid var(--theme-color);
+    border-radius: 20px;
+    transition: var(--fast-transition);
+    font-family: var(--fonts1);
+}
+
+input.code_input:focus {    
+    border-color: var(--dark-theme-color);
+    transform: scale(1.1);
+}
