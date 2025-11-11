@@ -7,20 +7,16 @@ import LoginForm from './forms/LoginForm'
 import BaseCard from '../../ui/cards/BaseCard'
 import { cssVarColors } from '../../../utils/consts/cssVariables'
 import TextButton from '../../ui/buttons/TextButton'
-import { IDENTITY_CONFIRMATION_ROUTE, RECOVER_PASSWORD_ROUTE } from '../../../utils/consts/routes'
+import { IDENTITY_CONFIRMATION_ROUTE, LOGIN_ROUTE, RECOVER_PASSWORD_ROUTE } from '../../../utils/consts/routes'
 import Description from '../../ui/text/Description'
 import useWindowSize from '../../../hooks/useWindowSize'
-import SecondaryFooter from '../../layout/footers/SecondaryFooter'
-import type { ApiResponseData } from '../../../hooks/useRequest'
-import { setSessionStorageItem } from '../../../utils/cache/sessionStorage'
 import useRequest from '../../../hooks/useRequest'
-import useFormData from '../../../hooks/useFormData'
+import useJsonBody from '../../../hooks/useJsonBody'
 import { useConfirmIdentityCallback } from '../../../app/contexts/confirmIdentityCallbackContext/useConfirmIdentityCallback'
-import { LOGIN_SECURE_ID_KEY } from '../../../utils/consts/cacheKeys'
 import useStatedNavigate from '../../../hooks/useStatedNavigate'
 import api from '../../../api/axios'
 import { userAuth } from '../../../utils/requests/userRequests'
-import { AUTH_ENDPOINT, LOGIN_ENDPOINT } from '../../../utils/consts/apiEndPoints'
+import { LOGIN_ENDPOINT } from '../../../utils/consts/apiEndPoints'
 import { useAppDispatch } from '../../../hooks/useAppDispatch'
 import { useNavigate } from 'react-router-dom'
 
@@ -35,8 +31,7 @@ const LoginPage = () => {
 
     const dispatch = useAppDispatch()
     
-    const { formData: loginFormData, appendFormDataValue: appendLoginFormDataValue } = useFormData(LOGIN_ENDPOINT)
-    const { formData: authFormData, appendFormDataValue: appendAuthFormDataValue } = useFormData(AUTH_ENDPOINT)
+    const { body, appendBodyValue } = useJsonBody(LOGIN_ENDPOINT)
 
     const { setOnConfirmIdentity } = useConfirmIdentityCallback()
 
@@ -46,31 +41,26 @@ const LoginPage = () => {
     const [loginError, setLoginError] = useState<boolean>(false)
 
     const onLoginSubmit = useCallback(() => {
-        const onLoginSuccess = (data: ApiResponseData) => {
-            const secureId = data.result?.secureId
-
-            setSessionStorageItem(LOGIN_SECURE_ID_KEY, secureId)
-
+        const onLoginSuccess = () => {
             setOnConfirmIdentity(() => {
-                appendAuthFormDataValue('secureId', secureId)
-
-                userAuth(authRequest, dispatch, navigate, authFormData)
+                userAuth(authRequest, dispatch, navigate)
             })
 
             statedNavigate(IDENTITY_CONFIRMATION_ROUTE, { 
                 state: {
                     user: {
                         email: loginUser.email
-                    }
+                    },
+                    origin: LOGIN_ROUTE
                 } 
             })
         }
 
-        appendLoginFormDataValue('email', loginUser.email)
-        appendLoginFormDataValue('password', loginUser.password)
+        appendBodyValue('email', loginUser.email)
+        appendBodyValue('password', loginUser.password)
 
         loginRequest(
-            () => api.post(LOGIN_ENDPOINT, loginFormData),
+            () => api.post(LOGIN_ENDPOINT, body),
             onLoginSuccess,
             undefined,
             t('requests.login.loading'),
@@ -79,12 +69,10 @@ const LoginPage = () => {
     }, [
         loginRequest,
         t,
-        appendLoginFormDataValue,
+        appendBodyValue,
         navigate,
         statedNavigate,
-        appendAuthFormDataValue,
-        authFormData,
-        loginFormData,
+        body,
         loginUser
     ])
 
@@ -95,47 +83,42 @@ const LoginPage = () => {
             padding='3em 1em'
             isUserRequired={false}
             centralize
+            hasSecondaryFooter
         >
-            <FlexContainer
-                gap='5em'
-            >
-                <FlexContainer>
-                    <FlexContainer
-                        width='50%'
-                        minWidth={isMobile ? (isSmallMobile ? '90%' : '80%') : '50%'}
+            <FlexContainer>
+                <FlexContainer
+                    width='50%'
+                    minWidth={isMobile ? (isSmallMobile ? '90%' : '80%') : '50%'}
+                >
+                    <BaseCard
+                        padding='1em'
                     >
-                        <BaseCard
-                            padding='1em'
-                        >
-                            <LoginForm
-                                onLoginSubmit={onLoginSubmit}
-                                loginError={loginError}
-                                setLoginError={setLoginError}
-                                user={loginUser}
-                                setUser={setLoginUser}
-                            />
-                        </BaseCard>
+                        <LoginForm
+                            onLoginSubmit={onLoginSubmit}
+                            loginError={loginError}
+                            setLoginError={setLoginError}
+                            user={loginUser}
+                            setUser={setLoginUser}
+                        />
+                    </BaseCard>
 
-                        <BaseCard
-                            padding='1em'
-                            flexDirection='row'
-                            gap='0.5em'
-                            minWidth='max-content'
-                        >
-                            <Description
-                                text={t('general.forgotPassword')}
-                            />
+                    <BaseCard
+                        padding='1em'
+                        flexDirection='row'
+                        gap='0.5em'
+                        minWidth='max-content'
+                    >
+                        <Description
+                            text={t('general.forgotPassword')}
+                        />
 
-                            <TextButton
-                                text={t('pages.recoverPassword')}
-                                onClick={() => navigate(RECOVER_PASSWORD_ROUTE)}
-                                varColor={cssVarColors.alertColor}
-                            />
-                        </BaseCard>
-                    </FlexContainer>
+                        <TextButton
+                            text={t('pages.recoverPassword')}
+                            onClick={() => navigate(RECOVER_PASSWORD_ROUTE)}
+                            varColor={cssVarColors.alertColor}
+                        />
+                    </BaseCard>
                 </FlexContainer>
-
-                <SecondaryFooter/>
             </FlexContainer>
         </BasePage>
     )

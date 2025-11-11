@@ -91,7 +91,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
                                 onChange={(e) => setObjectDataInForm<SignUpUser, SignUpErrors>(
                                     e,
                                     setUser, 
-                                    false,
+                                    true,
                                     undefined, 
                                     setSignUpError, 
                                     setSignUpDataErrors, 

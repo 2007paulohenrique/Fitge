@@ -13,18 +13,16 @@ import Description from '../../ui/text/Description'
 import useWindowSize from '../../../hooks/useWindowSize'
 import TextButton from '../../ui/buttons/TextButton'
 import Link from '../../ui/text/Link'
-import { IDENTITY_CONFIRMATION_ROUTE, INTRODUCTION_ROUTE, LOGIN_ROUTE, SETUP_SETTINGS_ROUTE } from '../../../utils/consts/routes'
+import { IDENTITY_CONFIRMATION_ROUTE, INTRODUCTION_ROUTE, LOGIN_ROUTE, SETUP_SETTINGS_ROUTE, SIGN_UP_ROUTE } from '../../../utils/consts/routes'
 import { cssVarTextSizes } from '../../../utils/consts/cssVariables'
-import SecondaryFooter from '../../layout/footers/SecondaryFooter'
-import useRequest, { type ApiResponseData } from '../../../hooks/useRequest'
+import useRequest from '../../../hooks/useRequest'
 import api from '../../../api/axios'
 import useStatedNavigate from '../../../hooks/useStatedNavigate'
 import { useNavigate } from 'react-router-dom'
-import { setSessionStorageItem } from '../../../utils/cache/sessionStorage'
-import { CREATE_ACCOUNT_SECURE_ID_KEY } from '../../../utils/consts/cacheKeys'
-import useFormData from '../../../hooks/useFormData'
+import useJsonBody from '../../../hooks/useJsonBody'
 import { useConfirmIdentityCallback } from '../../../app/contexts/confirmIdentityCallbackContext/useConfirmIdentityCallback'
 import { SIGN_UP_ENDPOINT } from '../../../utils/consts/apiEndPoints'
+import { useCreatingUser } from '../../../app/contexts/createAccountUserContext/useCreatingUser'
 
 const SignUpPage = () => {
     const { t } = useTranslation()
@@ -34,7 +32,9 @@ const SignUpPage = () => {
 
     const { request } = useRequest()
 
-    const { formData, appendFormDataValue } = useFormData(SIGN_UP_ENDPOINT)
+    const { setCreatingUser } = useCreatingUser()
+
+    const { body, appendBodyValue } = useJsonBody(SIGN_UP_ENDPOINT)
 
     const { setOnConfirmIdentity } = useConfirmIdentityCallback()
 
@@ -46,27 +46,35 @@ const SignUpPage = () => {
     const [acceptTerms, setAcceptTerms] = useState<boolean>(false)
 
     const onSignUpSubmit = useCallback(() => {
-        const onSignUpSuccess = (data: ApiResponseData) => {
-            setSessionStorageItem(CREATE_ACCOUNT_SECURE_ID_KEY, data.result?.secureId)
+        const onSignUpSuccess = () => {
+            setOnConfirmIdentity(() => {
+                navigate(SETUP_SETTINGS_ROUTE)
 
-            setOnConfirmIdentity(() => navigate(SETUP_SETTINGS_ROUTE))
+                setCreatingUser({
+                    user: {
+                        name: signUpUser.name,
+                        nickname: signUpUser.nickname,
+                        email: signUpUser.email,
+                        password: signUpUser.password
+                    }
+                })
+            })
 
             statedNavigate(IDENTITY_CONFIRMATION_ROUTE, { 
                 state: {
                     user: {
                         email: signUpUser.email
-                    }
+                    },
+                    origin: SIGN_UP_ROUTE
                 } 
             })
         }
 
-        appendFormDataValue('name', signUpUser.name)
-        appendFormDataValue('nickname', signUpUser.nickname)
-        appendFormDataValue('email', signUpUser.email)
-        appendFormDataValue('password', signUpUser.password)
+        appendBodyValue('nickname', signUpUser.nickname)
+        appendBodyValue('email', signUpUser.email)
 
         request(
-            () => api.post(SIGN_UP_ENDPOINT, formData),
+            () => api.post(SIGN_UP_ENDPOINT, body),
             onSignUpSuccess,
             undefined,
             t('requests.signUp.loading'),
@@ -75,7 +83,8 @@ const SignUpPage = () => {
     }, [
         request,
         t,
-        appendFormDataValue,
+        appendBodyValue,
+        body,
         navigate,
         statedNavigate,
         signUpUser
@@ -88,106 +97,101 @@ const SignUpPage = () => {
             padding='3em 1em'
             isUserRequired={false}
             centralize
+            hasSecondaryFooter
         >
             <FlexContainer
-                gap='5em'
+                flexDirection='row'
             >
                 <FlexContainer
-                    flexDirection='row'
+                    width={isMobile ? '50%' : ''}
+                    minWidth={isMobile ? (isSmallMobile ? '90%' : '80%') : '50%'}
                 >
-                    <FlexContainer
-                        width={isMobile ? '50%' : ''}
-                        minWidth={isMobile ? (isSmallMobile ? '90%' : '80%') : '50%'}
+                    <BaseCard
+                        padding='1em'
                     >
-                        <BaseCard
-                            padding='1em'
-                        >
-                            <SignUpForm
-                                onSignUpSubmit={onSignUpSubmit}
-                                signUpError={signUpFormError}
-                                setSignUpError={setSignUpFormError}
-                                signUpDataErrors={signUpErrors}
-                                setSignUpDataErrors={setSignUpErrors}
-                                user={signUpUser}
-                                setUser={setSignUpUser}
-                                acceptTerms={acceptTerms}
-                                setAcceptTerms={setAcceptTerms}
-                            />
-                        </BaseCard>
+                        <SignUpForm
+                            onSignUpSubmit={onSignUpSubmit}
+                            signUpError={signUpFormError}
+                            setSignUpError={setSignUpFormError}
+                            signUpDataErrors={signUpErrors}
+                            setSignUpDataErrors={setSignUpErrors}
+                            user={signUpUser}
+                            setUser={setSignUpUser}
+                            acceptTerms={acceptTerms}
+                            setAcceptTerms={setAcceptTerms}
+                        />
+                    </BaseCard>
 
-                        <BaseCard
-                            padding='1em'
-                            flexDirection='row'
-                            gap='0.5em'
-                            minWidth='max-content'
-                        >
-                            <Description
-                                text={t('general.alreadyHaveAnAccount')}
-                            />
+                    <BaseCard
+                        padding='1em'
+                        flexDirection='row'
+                        gap='0.5em'
+                        minWidth='max-content'
+                    >
+                        <Description
+                            text={t('general.alreadyHaveAnAccount')}
+                        />
 
-                            <TextButton
-                                text={t('pages.login')}
-                                onClick={() => navigate(LOGIN_ROUTE)}
-                            />
-                        </BaseCard>
-                    </FlexContainer>
+                        <TextButton
+                            text={t('pages.login')}
+                            onClick={() => navigate(LOGIN_ROUTE)}
+                        />
+                    </BaseCard>
+                </FlexContainer>
 
-                    {!isMobile && (
+                {!isMobile && (
+                    <FlexContainer
+                        padding={isTablet ? '1em' : '1em 7%'}
+                        gap={isTablet ? '5em' : '3em'}
+                    >
                         <FlexContainer
-                            padding={isTablet ? '1em' : '1em 7%'}
-                            gap={isTablet ? '5em' : '3em'}
+                            gap='5em'
                         >
-                            <FlexContainer
-                                gap='5em'
-                            >
-                                <FlexContainer>
-                                    <FlexContainer
-                                        width='50%'
-                                    >
-                                        <IconIllustration
-                                            icon={FitgeIcon}
-                                            size='large'
-                                        />
-                                        
-                                        <IconIllustration
-                                            icon={FitgeName}
-                                            varColor='--text-color'
-                                            size='fill'
-                                        />
-                                    </FlexContainer>
-
-                                    <Description
-                                        text={t('identity.slogan')}
-                                    />
-                                </FlexContainer>
-
-                                <FlexContainer>
+                            <FlexContainer>
+                                <FlexContainer
+                                    width='50%'
+                                >
                                     <IconIllustration
-                                        src={CardsIllustration}
+                                        icon={FitgeIcon}
+                                        size='large'
+                                    />
+                                    
+                                    <IconIllustration
+                                        icon={FitgeName}
+                                        varColor='--text-color'
                                         size='fill'
                                     />
                                 </FlexContainer>
+
+                                <Description
+                                    text={t('identity.slogan')}
+                                />
                             </FlexContainer>
 
-                            <Description
-                                text={
-                                    <Trans
-                                        i18nKey='identity.shortIntroductionToFitge'
-                                        components={{ 
-                                            introductionLink: <Link
-                                                destiny={INTRODUCTION_ROUTE} 
-                                                text={t('pages.introduction')} 
-                                            />
-                                        }}
-                                    />
-                                }
-                                varSize={cssVarTextSizes.smallTextSize}
-                            />
+                            <FlexContainer>
+                                <IconIllustration
+                                    src={CardsIllustration}
+                                    size='fill'
+                                />
+                            </FlexContainer>
                         </FlexContainer>
-                    )}
-                </FlexContainer>
 
-                <SecondaryFooter/>
+                        <Description
+                            text={
+                                <Trans
+                                    i18nKey='identity.shortIntroductionToFitge'
+                                    components={{ 
+                                        introductionLink: <Link
+                                            destiny={INTRODUCTION_ROUTE} 
+                                            text={t('pages.introduction')} 
+                                        />
+                                    }}
+                                />
+                            }
+                            varSize={cssVarTextSizes.smallTextSize}
+                        />
+                    </FlexContainer>
+                )}
             </FlexContainer>
         </BasePage>
     )
