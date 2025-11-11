@@ -1,19 +1,18 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import initialState, { type UserState } from './userStates'
+import type { UserSliceState } from './userStates'
+
+const initialState = null as UserSliceState
 
 const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setUser: (_state, action: PayloadAction<UserState>) => action.payload,
-    updateUser: (state, action: PayloadAction<Partial<UserState>>) => {
+    setUser: (_state: UserSliceState, action: PayloadAction<UserSliceState>) => action.payload,
+    updateUser: (state: UserSliceState, action: PayloadAction<Partial<UserSliceState>>) => {
+      if (!state) return state
       return {
-        ...state, 
-        ...action.payload,
-        config: {
-          ...state.config,
-          ...(action.payload.config || {}),
-        }
+        ...state,
+        ...action.payload
       }
     },
     resetUser: () => initialState
