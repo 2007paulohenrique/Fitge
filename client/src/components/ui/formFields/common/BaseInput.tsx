@@ -8,6 +8,7 @@ import styles from './BaseInput.module.css'
 
 export type BaseInputProps = {
     type?: React.HTMLInputTypeAttribute
+    inputMode?: 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';
     name: string
     placeholder: string
     label?: string
@@ -22,6 +23,7 @@ export type BaseInputProps = {
 
 const BaseInput: React.FC<BaseInputProps> = ({
     type = 'text',
+    inputMode = 'text',
     name,
     placeholder,
     label,
@@ -88,6 +90,7 @@ const BaseInput: React.FC<BaseInputProps> = ({
             >
                 <input 
                     type={type}
+                    inputMode={inputMode}
                     id={name}
                     name={name}
                     placeholder={placeholder}

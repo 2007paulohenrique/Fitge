@@ -60,17 +60,17 @@ const PasswordInputValidators: React.FC<PasswordInputValidatorsProps> = ({
                 />
     
                 <PasswordInputValidatorListElement
-                    hasValidated={HAS_SIMPLE_LETTER.test(password)}
+                    hasValidated={new RegExp(HAS_SIMPLE_LETTER).test(password)}
                     passwordValidationTranslationKey='letterValidation'
                 />
     
                 <PasswordInputValidatorListElement
-                    hasValidated={HAS_NUMBER.test(password)}
+                    hasValidated={new RegExp(HAS_NUMBER).test(password)}
                     passwordValidationTranslationKey='numberValidation'
                 />
     
                 <PasswordInputValidatorListElement
-                    hasValidated={HAS_SYMBOL.test(password)}
+                    hasValidated={new RegExp(HAS_SYMBOL).test(password)}
                     passwordValidationTranslationKey='symbolValidation'
                 />
             </FlexContainer>

@@ -29,6 +29,7 @@ const NicknameInput: React.FC<NicknameInputProps> = ({
             alertMessage={t('forms.fields.nickname.alert')}
             hasError={hasError}
             maxLength={NICKNAME_MAX_LENGTH}
+            isRequired
         />
     )
 }

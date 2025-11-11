@@ -21,6 +21,7 @@ const EmailInput: React.FC<EmailInputProps> = ({
     return (
         <BaseInput
             type='email'
+            inputMode='email'
             name={name}
             placeholder={t('forms.fields.email.placeholder')}
             value={value}
