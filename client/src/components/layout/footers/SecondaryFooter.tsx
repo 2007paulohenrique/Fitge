@@ -39,10 +39,10 @@ const SecondaryFooter = () => {
     return (
         <FlexContainer
             tag='footer'
+            padding={isMobile ? '2em 1em' : '2em 5em'}
         >
             <FlexWrapContainer
                 tag='ul'
-                padding={isMobile ? '0 1em' : '0 5em'}
                 style={{
                     color: formatVariableName(cssVarColors.grayColor),
                     textAlign: 'center'
