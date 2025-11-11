@@ -8,6 +8,7 @@ type NotifyType = 'success' | 'error' | 'loading'
 
 export type SystemMessageContextType = {
     notify: (message: string, type: NotifyType, id?: string) => void
+    dismiss: (id: string) => void
     confirm: (message: string, onConfirm: () => void) => void
 }
 
@@ -75,6 +76,10 @@ export function SystemMessageProvider({
         dismissTimeout.current = setTimeout(() => toast.dismiss(toastId), 5000)
     }, [])
 
+    const dismiss = useCallback((id: string) => {
+        toast.dismiss(id)
+    }, [])
+
     const confirm = useCallback((message: string, onConfirm: () => void) => {
         if (confirmToastId.current) return
 
@@ -101,7 +106,7 @@ export function SystemMessageProvider({
 
     return (
         <SystemMessageContext.Provider 
-            value={{ notify, confirm }}
+            value={{ notify, dismiss, confirm }}
         >
             <Toaster />
 
