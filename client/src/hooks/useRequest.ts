@@ -7,8 +7,12 @@ import api from '../api/axios'
 import type { AxiosError, AxiosResponse } from 'axios'
 import { useSystemMessage } from '../app/contexts/systemMessageContext/useSystemMessage'
 
-export type ApiResponseData = {
-    result?: Record<string, any>
+export type ApiResponseDataResult<T = any> = {
+    list?: Array<T>
+} & Record<string, any>
+
+export type ApiResponseData<T = any> = {
+    result?: ApiResponseDataResult<T>
     messageCode?: string
 }
 
@@ -31,7 +35,7 @@ export default function useRequest() {
     
     const location = useLocation()
 
-    const { notify } = useSystemMessage()
+    const { notify, dismiss } = useSystemMessage()
 
     const [loading, setLoading] = useState<boolean>(false)
 
@@ -91,6 +95,10 @@ export default function useRequest() {
         try {
             const response = await requestFunction()
 
+            console.log(response)
+
+            dismiss(requestId)
+
             onSuccess?.(response.data)
 
             const message = formatResponseMessageForTranslation(response.data.messageCode, 'success')
@@ -100,6 +108,8 @@ export default function useRequest() {
             return true
 
         } catch (err) {
+            dismiss(requestId)
+
             const error = err as AxiosError
 
             console.error(error)
