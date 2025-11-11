@@ -50,6 +50,6 @@ api/build/
 api/!**/src/main/**/build/
 api/!**/src/test/**/build/
 
-api/src/main/resources/application.properties
+api/.env
 
 .vscode/
