@@ -17,7 +17,9 @@ createRoot(document.getElementById('root')!).render(
       <SystemMessageProvider>
         <BrowserRouter>
           <ConfirmIdentityCallbackProvider>
-            <App />
+            <CreatingUserProvider>
+              <App />
+            </CreatingUserProvider>
           </ConfirmIdentityCallbackProvider>
         </BrowserRouter>
       </SystemMessageProvider>
