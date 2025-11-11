@@ -39,7 +39,7 @@ public class GlobalExceptionHandler {
             .stream()
             .findFirst()
             .map(error -> error.getDefaultMessage())
-            .orElse(DefaultError.INVALID_REQUEST);
+            .orElse(DefaultError.INVALID_REQUEST_ERROR);
 
         throw new ApiException(messageCode, HttpStatus.BAD_REQUEST, ex);
     }
@@ -50,7 +50,7 @@ public class GlobalExceptionHandler {
             .stream()
             .findFirst()
             .map(violation -> violation.getMessage())
-            .orElse(DefaultError.INVALID_REQUEST);
+            .orElse(DefaultError.INVALID_REQUEST_ERROR);
 
         throw new ApiException(messageCode, HttpStatus.BAD_REQUEST, ex);
     }
