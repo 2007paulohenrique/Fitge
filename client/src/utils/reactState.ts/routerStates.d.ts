@@ -1,9 +1,10 @@
-import type { IDENTITY_CONFIRMATION_ROUTE } from '../consts/routes'
+import type { IDENTITY_CONFIRMATION_ROUTE, routesType } from '../consts/routes'
 
 export type IdentityConfirmationState = {
     user: { 
         email: string 
-    }
+    },
+    origin: routesType
 }
 
 export type RouterStateMap = {
