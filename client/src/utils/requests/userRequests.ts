@@ -1,7 +1,7 @@
 import type { NavigateFunction } from 'react-router-dom'
 import api from '../../api/axios'
 import { setUser } from '../../app/store/slices/user/userSlice'
-import type { UserState } from '../../app/store/slices/user/userStates'
+import type { UserSliceState } from '../../app/store/slices/user/userStates'
 import type { AppDispatch } from '../../app/store/store'
 import type { ErrorHandler, RequestFunction, RequestInUseRequest, SuccessHandler } from '../../hooks/useRequest'
 import { AUTH_ENDPOINT, GET_USER_ME_TYPE_ENDPOINT } from '../consts/apiEndPoints'
@@ -25,11 +25,11 @@ export async function getUserType(request: RequestInUseRequest): Promise<string 
     return userType
 }
 
-export async function userAuth(request: RequestInUseRequest, dispatch: AppDispatch, navigate: NavigateFunction, formData: FormData): Promise<void> {
-    const postRequest: RequestFunction = () => api.post(AUTH_ENDPOINT, formData)
+export async function userAuth(request: RequestInUseRequest, dispatch: AppDispatch, navigate: NavigateFunction): Promise<void> {
+    const postRequest: RequestFunction = () => api.post(AUTH_ENDPOINT)
 
     const onSuccess: SuccessHandler = (data) => {
-        dispatch(setUser(data.result as UserState))
+        dispatch(setUser(data.result as UserSliceState))
 
         navigate('/')
     }
