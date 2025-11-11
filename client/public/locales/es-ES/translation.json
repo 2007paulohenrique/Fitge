@@ -35,7 +35,13 @@
         "checkPolicyLink": "Consulte <link/> para obtener más información.",
         "forgotPassword": "¿Olvidaste tu contraseña?",
         "alreadyHaveAnAccount": "¿Ya tienes una cuenta?",
-        "download": "Descargar"
+        "download": "Descargar",
+        "confirmYourIdentity": "Confirma tu Identidad",
+        "attemptsRemaining_one": "Último intento",
+        "attemptsRemaining_other": "{{count}} intentos restantes",
+        "resendCode": "Reenviar código",
+        "secondsRemaining_one": "Introduce y envía el código en {{count}} segundo",
+        "secondsRemaining_other": "Introduce y envía el código en {{count}} segundos"    
     },
     "forms": {
         "fields": {

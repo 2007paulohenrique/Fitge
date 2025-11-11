@@ -35,7 +35,13 @@
         "checkPolicyLink": "Confira <link/> para mais informações.",
         "forgotPassword": "Esqueceu sua senha?",
         "alreadyHaveAnAccount": "Já tem uma conta?",
-        "download": "Baixar"
+        "download": "Baixar",
+        "confirmYourIdentity": "Confirme sua Identidade",
+        "attemptsRemaining_one": "Última tentativa",
+        "attemptsRemaining_other": "{{count}} tentativas restantes",
+        "resendCode": "Reenviar Código",
+        "secondsRemaining_one": "Insira e envie o código dentro de {{count}} segundo",
+        "secondsRemaining_other": "Insira e envie o código dentro de {{count}} segundos"
     },
     "forms": {
         "fields": {
