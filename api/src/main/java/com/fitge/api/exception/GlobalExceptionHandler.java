@@ -68,7 +68,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(AccessDeniedException.class)
     public ResponseEntity<ApiException> handleAccessDeniedException(Exception ex) {
-        throw new ApiException(SecurityError.INVALID_USER_ROLE, HttpStatus.FORBIDDEN, ex);
+        throw new ApiException(SecurityError.INVALID_USER_ROLE_ERROR, HttpStatus.FORBIDDEN, ex);
     }
 
 }
