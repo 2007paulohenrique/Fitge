@@ -4,7 +4,8 @@
             "PAGE_ACCESS_ERROR": "You don't have permission to access this page!",
             "UNKNOWN_ERROR": "An unknown error occurred! Please send a message to our support team or try again.",
             "TIMEOUT_ERROR": "The server took too long to respond! Please check your connection or try again.",
-            "LOGIN_ERROR": "Invalid email or password."
+            "LOGIN_ERROR": "Invalid e-mail or password.",
+            "IDENTITY_CONFIRMATION_TIMEOUT_ERROR": "The time to confirm your identity has expired. Please repeat the process and confirm your identity within two minutes."
         },
         "success": {
 
@@ -21,7 +22,8 @@
         "help": "Help",
         "privacyAndSecurityPolicy": "Privacy and Security Policy",
         "contentPolicy": "Content Policy",
-        "cookiesPolicy": "Cookies Policy"
+        "cookiesPolicy": "Cookies Policy",
+        "identityConfirmation": "Identity Confirmation"
     },
     "general": {
         "confirm": "Confirm",

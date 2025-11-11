@@ -4,7 +4,8 @@
             "PAGE_ACCESS_ERROR": "¡No tienes permiso para acceder a esta página!",
             "UNKNOWN_ERROR": "¡Se ha producido un error desconocido! Envía un mensaje a nuestro equipo de soporte o inténtalo de nuevo.",
             "TIMEOUT_ERROR": "¡El servidor tardó demasiado en responder! Comprueba tu conexión o inténtalo de nuevo.",
-            "LOGIN_ERROR": "E-mail o contraseña no válidos."
+            "LOGIN_ERROR": "E-mail o contraseña no válidos.",
+            "IDENTITY_CONFIRMATION_TIMEOUT_ERROR": "Ha expirado el tiempo para confirmar su identidad. Repita el proceso y confirme su identidad en un plazo de dos minutos."
         },
         "success": {
 
@@ -21,7 +22,8 @@
         "help": "Ayuda",
         "privacyAndSecurityPolicy": "Política de Privacidad y Seguridad",
         "contentPolicy": "Política de Contenido",
-        "cookiesPolicy": "Política de Cookies"
+        "cookiesPolicy": "Política de Cookies",
+        "identityConfirmation": "Confirmación de Identidad"
     },
     "general": {
         "confirm": "Confirmar",
