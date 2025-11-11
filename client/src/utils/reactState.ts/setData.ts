@@ -1,4 +1,5 @@
 import type React from 'react'
+import type { Code } from '../../components/pages/identityConfirmation/types'
 
 type SetObjectDataInFormType = <
     T extends Record<string, any>, 
@@ -44,4 +45,35 @@ export const setObjectDataInForm: SetObjectDataInFormType = (
         }))
 
     }
+}
+
+type setCodeObjectInIdentityConfirmationFormType = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    code: Code,
+    setCode: React.Dispatch<React.SetStateAction<Code>>, 
+    setCodeError: React.Dispatch<React.SetStateAction<boolean>>,
+    focusNext: () => void
+) => void
+
+export const setCodeObjectInIdentityConfirmationForm: setCodeObjectInIdentityConfirmationFormType = (
+    e,
+    code,
+    setCode,
+    setCodeError,
+    focusNext
+) => {
+    const target = e.target
+    const name = target.name
+    const value = target.value
+    
+    const newCode: Code = {
+        ...code,
+        [name]: value
+    }
+
+    setCodeError(Object.values(newCode).some(value => !value))
+
+    setCode(newCode)
+
+    if (value) focusNext()
 }
