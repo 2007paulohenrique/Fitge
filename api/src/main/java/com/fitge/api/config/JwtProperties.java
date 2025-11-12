@@ -30,6 +30,12 @@ public class JwtProperties {
 
     @Min(1)
     private long refreshExpirationMs;
+    
+    @Min(1)
+    private long loginExpirationMs;
+
+    @Min(1)
+    private long signUpExpirationMs;
 
     @NotBlank
     private String accessCookieName;
