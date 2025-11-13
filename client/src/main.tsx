@@ -8,6 +8,7 @@ import { store } from './app/store/store.ts'
 import { SystemMessageProvider } from './app/contexts/systemMessageContext/SystemMessageContext.tsx'
 import { BrowserRouter } from 'react-router-dom'
 import { ConfirmIdentityCallbackProvider } from './app/contexts/confirmIdentityCallbackContext/ConfirmIdentityCallbackContext.tsx'
+import { CreatingUserProvider } from './app/contexts/createAccountUserContext/CreatingUserContext.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
